@@ -1,4 +1,7 @@
 # Team Quizzard Wizzards Presents:
+- Chester
+- Paul
+- Sydney
 
 ## Summary
 - This is a quiz game, one question, multiple answers. 
