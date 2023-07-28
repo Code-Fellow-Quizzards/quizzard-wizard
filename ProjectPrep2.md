@@ -18,7 +18,7 @@
 - High scores tracked for users
 - Level difficulty is determined by players score (configuration)
 
-### Strech Goal
+### Stretch Goal
 - include the option for a second kind of game: instead of clicking the correct answer, one must type it
 
 
