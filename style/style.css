@@ -1,0 +1,12 @@
+nav {
+  color: salmon;
+}
+
+footer {
+  text-align: center;
+}
+
+fieldset {
+  width: 50vw;
+  width: fit-content;
+}
