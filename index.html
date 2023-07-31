@@ -11,13 +11,14 @@
     <nav>
       <ol>
         <li>Home</li>
-        <li><a href="/quizwiz.html">Play Quiz Wiz</a></li>
+        <!-- <li><a href="/quizwiz.html">Play Quiz Wiz</a></li> -->
         <li><a href="/results.html">View Results</a></li>
       </ol>
     </nav>
   </header>
   
   <main>
+    <h1>Jello Baby</h1>
     <div>
       <form id="get-player-name">
         <fieldset>
@@ -26,7 +27,8 @@
             <label for="player-name">Pokemon Name</label>
             <input id="player-name" type="text" name="playerName"
             placeholder="guest">
-            <button type="button">Start Game</button>
+            <!-- <button type="button" id="start-game-btn">Start Game</button> -->
+            <button type="button" onclick="submitForm()">Start Game</button>
           </div>
         </fieldset>
 
@@ -38,6 +40,6 @@
     <hr>
     Handcrafted in WA, USA
   </footer>
-<script src="js/app.js"></script>
+<script src="js/app.js" defer></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ console.log('quizwiz.js loaded');
 let ACTIVE_PLAYER = 'Daddy'; // this will be automated
 
 let state = new AppState();
-let player = state.loadPlayer(ACTIVE_PLAYER);
+let player = state.loadPlayerData(ACTIVE_PLAYER);
 // let player = state.load(ACTIVE_PLAYER);
 // state.loadDefaultPlayers();
 // state.loadSpecificPlayer(ACTIVE_PLAYER);

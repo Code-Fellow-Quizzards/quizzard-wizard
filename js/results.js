@@ -2,6 +2,8 @@
 
 console.log('results.js loaded');
 
-let state = new AppState();
-state.loadDefaultPlayers();
-console.log(state.allPlayers);
+// let state = new QuizWhiz();
+// let state = loadPlayerData('qqq');
+let state = loadPlayerData('rrr');
+
+console.log(state);
