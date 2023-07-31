@@ -1,0 +1,21 @@
+nav {
+  color: salmon;
+}
+
+footer {
+  text-align: center;
+}
+
+fieldset {
+  width: 50vw;
+  width: fit-content;
+}
+/* 
+h1 {
+
+}
+
+h1 {
+  border-width: 11px;
+  border: dashed blue;
+} */
