@@ -16,6 +16,7 @@
     "eqeqeq": ["error", "always"],
     "no-console": "off",
     "no-undefined": "off",
+    "no-undef": "off",
     "indent": ["error", 2],
     "quotes": ["warn", "single"],
     "no-multi-spaces": [
@@ -26,7 +27,7 @@
         }
       }
     ],
-    "no-trailing-spaces": "warn",
+    // "no-trailing-spaces": "warn",
     "new-cap": "warn",
     "no-redeclare": [
       "error",
