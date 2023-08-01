@@ -22,16 +22,17 @@ function Player(playerName) {
 
 
 Player.prototype.savePlayer = function () {
-    name: this.name,
-    difficultyLevel: this.difficultyLevel,
-    highScore: this.highScore,
-    singleSessionBestScore: this.singleSessionBestScore,
-    currentCategory: this.currentCategory,
-    currentCorrectAnswers: this.currentCorrectAnswers,
-    currentNumberAskedQuestions: this.currentNumberAskedQuestions,
-    totalNumberCorrectAnswers: this.totalNumberCorrectAnswers,
-    totalNumberAskedQuestions: this.totalNumberAskedQuestions,
-  };
+    const playerData = {
+      name: this.name,
+      difficultyLevel: this.difficultyLevel,
+      highScore: this.highScore,
+      singleSessionBestScore: this.singleSessionBestScore,
+      currentCategory: this.currentCategory,
+      currentCorrectAnswers: this.currentCorrectAnswers,
+      currentNumberAskedQuestions: this.currentNumberAskedQuestions,
+      totalNumberCorrectAnswers: this.totalNumberCorrectAnswers,
+      totalNumberAskedQuestions: this.totalNumberAskedQuestions,
+    };
 
   localStorage.setItem(this.name, JSON.stringify(playerData));
   console.log('saved: ' + this.name);
