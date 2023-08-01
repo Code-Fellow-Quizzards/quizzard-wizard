@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 console.log('app.js loaded');
@@ -6,119 +7,119 @@ let EASY_DIFFICULTY = 1;
 let MEDIUM_DIFFICULTY = 2;
 let HIGH_DIFFICULTY = 3;
 
-// TODO: create a namespace for safe data retrieval
-// function QuizWhiz() {
-//   this.allPlayers = [];
-//   this.activePlayer = null;
-// }
-
-function Player (playerName, highScore = 0, difficultyLevel = EASY_DIFFICULTY) {
+function Player (playerName, difficultyLevel = EASY_DIFFICULTY) {
   this.name = playerName;
-  this.highScore = highScore;
   this.difficultyLevel = difficultyLevel;
+
+  this.highScore = 0;
+  this.singleSessionBestScore = 0;
+  this.currentCategory = 0;
+  this.currentCorrectAnswers = 0;
+  this.currentNumberAskedQuestions = 0;
+  this.totalNumberCorrectAnswers = 0;
+  this.totalNumberAskedQuestions = 0;
 }
 
 
-function savePlayerData(playerName) {
-  const playerData = JSON.stringify(playerName);
-  localStorage.setItem(playerName, playerData);
-  console.log('saved: ' + playerName);
-}
+Player.prototype.savePlayer = function () {
+  const playerData = {
+    name: this.name,
+    difficultyLevel: this.difficultyLevel,
+    highScore: 0,
+    singleSessionBestScore: 0,
+    currentCategory: 0,
+    currentCorrectAnswers: 0,
+    currentNumberAskedQuestions: 0,
+    totalNumberCorrectAnswers: 0,
+    totalNumberAskedQuestions: 0,
+  };
 
+  localStorage.setItem(this.name, JSON.stringify(playerData));
+  console.log('saved: ' + this.name);
+};
 
-function loadPlayerData(playerName) {
+Player.prototype.speaks = function () {
+  console.log(`${this} has thus spoken`);
+};
+
+function loadPlayer(playerName) {
+  console.log('loading existing player: ' + playerName);
   let existingPlayerData = localStorage.getItem(playerName);
-  if (!existingPlayerData) {
-    console.log('making new player: ' + playerName);
-    savePlayerData(playerName);
-    return new Player(playerName);
-  } else {
-    console.log('loading existing player: ' + playerName);
-    existingPlayerData = localStorage.getItem(playerName);
-    const playerData = JSON.parse(existingPlayerData);
-    return new Player(playerData.name, playerData.highScore, playerData.difficultyLevel);
-  }
-    
+  const playerData = JSON.parse(existingPlayerData);
+  console.log('loaded name: ' + playerData.name);
+  return new Player(playerData.name, playerData.difficultyLevel);
 }
 
+function fetchQuizData(url) {
+  // GPT helping out with the API pull request
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Use the data here
+      console.log(data);
+      // return(data);
+    })
+    .catch(error => {
+      console.error('Error fetching quiz data:', error);
+    });
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// We'll be experimenting with a few URL's here
+////////////////////////////////////////////////////////////////////////////////
+let urlToGet = 'https://opentdb.com/api.php?amount=10&category=20&difficulty=easy&type=multiple';
+// let urlToGet = 'https://opentdb.com/api_category.php';
+// let urlToGet = '';
+// let urlToGet = '';
+// let urlToGet = '';
+////////////////////////////////////////////////////////////////////////////////
+
+
+function playQuiz(activePlayer) {
+  console.log('We\'re now playing with: ' + activePlayer.name);
+  // for loop (10 iteration) {
+  //   questionArray = returnAnswerArray();
+  //   askQuestion[i];
+  //   gameLogic();
+  //   activePlayer.savePlayer();
+  // }
+}
+    
 function submitForm() {
-  // GPT helped here
   const playerNameInput = document.getElementById('player-name');
   const playerName = playerNameInput.value.trim();
 
+  // localStorage.clear();
+
   if (playerName) {
-    const activePlayer = loadPlayerData(playerName);
-    savePlayerData(activePlayer);
+    let existingPlayerData = localStorage.getItem(playerName);
+
+    if (!existingPlayerData) {
+      // console.log('need to make a new player obj');
+      let activePlayer = new Player(playerName);
+      activePlayer.savePlayer();
+    } else {
+      // console.log('need to load a player obj');
+      let activePlayer = loadPlayer(playerName);
+      let quizData = fetchQuizData(urlToGet);
+
+      // Info for loading data into Quiz Game
+      // console.log('This is the Player object I can pass to the Quiz Game:');
+      // console.log(activePlayer);
+      // console.log('This is the quizPool object I can pass to the Quiz Game:');
+      // fetchQuizData(urlToGet);
+
+      // To be added 
+      console.log(quizData);
+      // playQuizWiz(activePlayer, quizData);
+
+    }
   } else {
     console.log('no playerName');
   }
 }
-
-
-// QuizWhiz.prototype.loadDefaultPlayers = function (activePlayerName) {
-//   // This function loads players that have previously played the game
-//   // for now, I'm doing this manually
-//   // TODO: use localStorage to save/write this information
-  
-//   console.log('loading default players');
-  
-//   let tempPlayers = ['Daddy', 'Mattie', 'Amy'];
-//   let highScores = [40, 6, 4];
-//   this.activePlayer = activePlayerName;
-  
-//   for (let i = 0; i < tempPlayers.length; i++) {
-//     let playerName = tempPlayers[i];
-//     let playerScore = highScores[i];
-//     this.allPlayers.push(new Player(playerName, playerScore));
-//   }
-
-// };
-
-// QuizWhiz.prototype.save = function (playerObject) {
-//   console.log(playerObject.name);
-
-//   console.log(this['Daddy']);
-
-//   let rawPlayerData = JSON.stringify(this);
-//   // console.log(rawPlayerData);
-//   localStorage.setItem('playerData', rawPlayerData);
-
-//   console.log('data saved');
-// };
-
-// QuizWhiz.prototype.loadPlayerData = function () {
-//   // const playerNameInput = document.getElementById('playerName');
-//   // console.log(playerNameInput);
-//   console.log('clicked');
-// };
-
-// // document.getElementById('start-game-btn').addEventListener('click', loadPlayerData);
-
-
-// QuizWhiz.prototype.ORIGINALloadPlayer = function (activePlayerName) {
-//   let rawPlayerData = localStorage.getItem('playerData');
-
-//   const playerData = JSON.parse(rawPlayerData);
-//   const activePlayerObj = playerData.allPlayers.find(playerObject => playerObject.name === activePlayerName);
-
-//   if (activePlayerObj){
-//     console.log('successfully loaded ' + activePlayerName);
-//     return(activePlayerObj);
-//   } else {
-//     this.loadDefaultPlayers(activePlayerName);
-//     console.log('creating new user ' + activePlayerName);
-//     return (new Player(activePlayerName));
-//   }
-// };
-
-
-// QuizWhiz.prototype.loadSpecificPlayer = function (playerName) {
-//   // Loads existing player
-//   // if no existing player, cr  eates a new player
-
-//   this.activePlayer = playerName;
-//   // console.log(this.allPlayers[0]);
-
-//   // TODO: This should return a single Player object
-// };
-

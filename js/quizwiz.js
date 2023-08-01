@@ -2,31 +2,15 @@
 
 console.log('quizwiz.js loaded');
 
-let ACTIVE_PLAYER = 'Daddy'; // this will be automated
+function playQuizWiz (activePlayer, quizData) {
+  console.log('We\'re ready to play!');
+  console.log(activePlayer);
+  console.log(quizData); 
 
-let state = new AppState();
-let player = state.loadPlayerData(ACTIVE_PLAYER);
-// let player = state.load(ACTIVE_PLAYER);
-// state.loadDefaultPlayers();
-// state.loadSpecificPlayer(ACTIVE_PLAYER);
+}
 
+// name: string
+// Category: Drop down list
+// # Questions they want to be asked
+// difficulty (E/M/H)
 
-
-
-
-
-// // Let the player object be the active player
-// let player = state.allPlayers.find(playerObject => playerObject.name === ACTIVE_PLAYER);
-
-console.log(player.name, player.highScore, player.difficultyLevel);
-
-player.highScore = 40;
-
-// // Save the changes
-// // state.saveAllPlayers();
-
-// // Log Daddy's new high score
-console.log(player.name, player.highScore, player.difficultyLevel);
-
-
-state.save(player);
