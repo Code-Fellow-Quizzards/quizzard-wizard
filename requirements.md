@@ -61,3 +61,11 @@ We feel as though education needs to be more fun. Our mission is to provide an e
 - there is a counter on the number of questions shown during play
 - during play data is stored in 'current' data handlers (currentScore, currentTotalQuestionsAsked), and at the end of every round, these totals are added to lifetime counters
 - when generating a leaderboard report, data is loaded into the chart so that the user can see visually how they rank against other players
+
+
+constructors
+what data are you storing in totality
+so what are the types of data we need to solve
+drawing out entities:
+  constructors with methods, and proeperties
+  
