@@ -65,17 +65,14 @@ function randomAnswerArray(questionData) {
   const answerArray = [];
   let randomIndex = Math.floor(Math.random() * NUMBER_ANSWER_OPTION);
   let incorrectAnswer = questionData.incorrect_answers;
-  console.log(incorrectAnswer);
 
   for (let i = 0; i < NUMBER_ANSWER_OPTION; i++) {
-    console.log(randomIndex);
     if (i === randomIndex) {
       answerArray.push(questionData.correct_answer);
     } else {
       answerArray.push(incorrectAnswer.pop());
     }
   }
-  console.log(answerArray);
   return answerArray;
 }
 
@@ -91,7 +88,6 @@ function loadQuestion() {
   questionTextElement.textContent = currentQuestionData.question;
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
-  console.log('hello' + options);
 
   for (let i = 0; i < NUMBER_ANSWER_OPTION; i++) {
     const option = options[i];
@@ -140,7 +136,7 @@ function goToNextQuestion() {
     );
     // console.log(selectedAnswers[currentQuestion-1]);
     // console.log(questionData[currentQuestion-1].correct_answer);
-    // console.log(player);
+    console.log(player);
     loadQuestion();
   } else {
     // Submit the quiz (you can add your submission logic here)
