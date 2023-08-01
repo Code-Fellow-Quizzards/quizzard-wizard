@@ -18,3 +18,6 @@
 > Our domain modeling can be found in our invisionapp sketch located here:
 [Domain Modeling](https://projects.invisionapp.com/freehand/document/QUoxhvzef)
 ![Domain Modeling Image](proj/img/domain-modeling.png)
+
+### References
+- ChatGPT and other AI models were used to suggest, correct and explain code.
