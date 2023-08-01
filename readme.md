@@ -12,9 +12,9 @@
 ![Quizzard Wizard Project Wireframe](proj/img/wireframe.png)
 
 ## User Stories
-[GitHub Projects](https://github.com/orgs/Code-Fellow-Quizzards/projects/1/views/1)
+[GitHub Project](https://github.com/orgs/Code-Fellow-Quizzards/projects/1/views/1)
 
 ## Domain Modeling
-> Our domain modeling can be found in our invisionapp sketch located in the link below:
+> Our domain modeling can be found in our invisionapp sketch located here:
 [Domain Modeling](https://projects.invisionapp.com/freehand/document/QUoxhvzef)
 ![Domain Modeling Image](proj/img/domain-modeling.png)
