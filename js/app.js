@@ -62,6 +62,7 @@ function fetchQuizData(url) {
     .then(data => {
       // Use the data here
       console.log(data);
+      // return(data);
     })
     .catch(error => {
       console.error('Error fetching quiz data:', error);
@@ -78,6 +79,16 @@ let urlToGet = 'https://opentdb.com/api.php?amount=10&category=20&difficulty=eas
 // let urlToGet = '';
 ////////////////////////////////////////////////////////////////////////////////
 
+
+function playQuiz(activePlayer) {
+  console.log('We\'re now playing with: ' + activePlayer.name);
+  // for loop (10 iteration) {
+  //   questionArray = returnAnswerArray();
+  //   askQuestion[i];
+  //   gameLogic();
+  //   activePlayer.savePlayer();
+  // }
+}
     
 function submitForm() {
   const playerNameInput = document.getElementById('player-name');
@@ -95,15 +106,17 @@ function submitForm() {
     } else {
       // console.log('need to load a player obj');
       let activePlayer = loadPlayer(playerName);
+      let quizData = fetchQuizData(urlToGet);
 
       // Info for loading data into Quiz Game
-      console.log('This is the Player object I can pass to the Quiz Game:');
-      console.log(activePlayer);
-      console.log('This is the quizPool object I can pass to the Quiz Game:');
-      fetchQuizData(urlToGet);
+      // console.log('This is the Player object I can pass to the Quiz Game:');
+      // console.log(activePlayer);
+      // console.log('This is the quizPool object I can pass to the Quiz Game:');
+      // fetchQuizData(urlToGet);
 
       // To be added 
-      // playQuiz(activePlayer);
+      console.log(quizData);
+      // playQuizWiz(activePlayer, quizData);
 
     }
   } else {
