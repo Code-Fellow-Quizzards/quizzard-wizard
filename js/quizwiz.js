@@ -6,7 +6,7 @@ function playQuizWiz (activePlayer, quizData) {
   console.log('We\'re ready to play!');
   console.log(activePlayer);
   console.log(quizData); 
-
+  
 }
 
 // name: string

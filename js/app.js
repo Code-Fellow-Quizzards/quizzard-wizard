@@ -170,9 +170,13 @@ function submitForm() {
       // To be added 
       console.log(quizData);
       playQuizWiz(activePlayer, quizData);
-
+      changePage('http://127.0.0.1:5501/quizwiz.html');
     }
   } else {
     console.log('no playerName');
   }
+}
+
+function changePage(url) {
+  window.location.href = url;
 }
