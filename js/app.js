@@ -7,7 +7,7 @@ const EASY_DIFFICULTY = 1;
 const MEDIUM_DIFFICULTY = 2;
 const HIGH_DIFFICULTY = 3;
 
-function Player (playerName) {
+function Player(playerName) {
   this.name = playerName;
   this.difficultyLevel = EASY_DIFFICULTY;
 
@@ -22,7 +22,6 @@ function Player (playerName) {
 
 
 Player.prototype.savePlayer = function () {
-  const playerData = {
     name: this.name,
     difficultyLevel: this.difficultyLevel,
     highScore: this.highScore,
@@ -169,14 +168,14 @@ function submitForm() {
 
       // To be added 
       console.log(quizData);
-      playQuizWiz(activePlayer, quizData);
-      changePage('http://127.0.0.1:5501/quizwiz.html');
+      // playQuizWiz(activePlayer, quizData);
+      // changePage('http://127.0.0.1:5501/quizwiz.html');
     }
   } else {
     console.log('no playerName');
   }
 }
 
-function changePage(url) {
-  window.location.href = url;
-}
+// function changePage(url) {
+//   window.location.href = url;
+// }

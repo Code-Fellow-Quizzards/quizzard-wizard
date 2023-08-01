@@ -79,7 +79,6 @@ function randomAnswerArray(questionData) {
 let currentQuestion = 0;
 const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
-const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const selectedAnswers = new Array(questionData.length).fill(null);
 
@@ -160,7 +159,7 @@ function showResults() {
   document.body.innerHTML = resultsHTML;
 }
 
-nextBtn.addEventListener('click', goToNextQuestion);
+// nextBtn.addEventListener('click', goToNextQuestion);
 
 // Load the first question
 loadQuestion();
