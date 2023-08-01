@@ -61,24 +61,24 @@ function loadPlayer(playerName) {
   return loadedPlayerObj;
 }
 
-function fetchQuizData(url) {
-  // GPT helping out with the API pull request
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Use the data here
-      console.log(data);
-      // return(data);
-    })
-    .catch(error => {
-      console.error('Error fetching quiz data:', error);
-    });
-}
+// function fetchQuizData(url) {
+//   // GPT helping out with the API pull request
+//   fetch(url)
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return response.json();
+//     })
+//     .then(data => {
+//       // Use the data here
+//       console.log(data);
+//       // return(data);
+//     })
+//     .catch(error => {
+//       console.error('Error fetching quiz data:', error);
+//     });
+// }
 
 ////////////////////////////////////////////////////////////////////////////////
 // We'll be experimenting with a few URL's here
@@ -89,6 +89,42 @@ let urlToGet = 'https://opentdb.com/api.php?amount=10&category=20&difficulty=eas
 // let urlToGet = '';
 // let urlToGet = '';
 ////////////////////////////////////////////////////////////////////////////////
+
+function fetchQuizData(url) {
+  // GPT helping out with the API pull request
+
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Use the data here
+      // console.log(data);
+      return(data);
+    })
+    .catch(error => {
+      console.error('Error fetching quiz data:', error);
+    });
+}
+
+function fetchAndReturnQuestionData() {
+  return fetchQuizData(urlToGet)
+    .then(quizData => {
+      if (quizData.response_code === 0) {
+        return quizData.results;
+      } else {
+        console.log('There was an error collecting questions: ' + quizData.response_code);
+      }
+    });
+}
+
+function askQuestions(questionPool) {
+  console.log('This is where your question function can go. All questions are in questionPool');
+  console.log(questionPool);
+}
 
 
 function playQuiz(activePlayer) {
@@ -118,7 +154,10 @@ function submitForm() {
     } else {
       // console.log('need to load a player obj');
       let activePlayer = loadPlayer(playerName);
-      console.log(activePlayer);
+      let questionPool = fetchAndReturnQuestionData();
+      questionPool.then(askQuestions);
+
+      // console.log(activePlayer);
 
       // let quizData = fetchQuizData(urlToGet);
 
