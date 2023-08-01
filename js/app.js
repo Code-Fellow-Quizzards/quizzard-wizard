@@ -3,13 +3,13 @@
 
 console.log('app.js loaded');
 
-let EASY_DIFFICULTY = 1;
-let MEDIUM_DIFFICULTY = 2;
-let HIGH_DIFFICULTY = 3;
+const EASY_DIFFICULTY = 1;
+const MEDIUM_DIFFICULTY = 2;
+const HIGH_DIFFICULTY = 3;
 
-function Player (playerName, difficultyLevel = EASY_DIFFICULTY) {
+function Player (playerName) {
   this.name = playerName;
-  this.difficultyLevel = difficultyLevel;
+  this.difficultyLevel = EASY_DIFFICULTY;
 
   this.highScore = 0;
   this.singleSessionBestScore = 0;
@@ -25,13 +25,13 @@ Player.prototype.savePlayer = function () {
   const playerData = {
     name: this.name,
     difficultyLevel: this.difficultyLevel,
-    highScore: 0,
-    singleSessionBestScore: 0,
-    currentCategory: 0,
-    currentCorrectAnswers: 0,
-    currentNumberAskedQuestions: 0,
-    totalNumberCorrectAnswers: 0,
-    totalNumberAskedQuestions: 0,
+    highScore: this.highScore,
+    singleSessionBestScore: this.singleSessionBestScore,
+    currentCategory: this.currentCategory,
+    currentCorrectAnswers: this.currentCorrectAnswers,
+    currentNumberAskedQuestions: this.currentNumberAskedQuestions,
+    totalNumberCorrectAnswers: this.totalNumberCorrectAnswers,
+    totalNumberAskedQuestions: this.totalNumberAskedQuestions,
   };
 
   localStorage.setItem(this.name, JSON.stringify(playerData));
@@ -47,7 +47,18 @@ function loadPlayer(playerName) {
   let existingPlayerData = localStorage.getItem(playerName);
   const playerData = JSON.parse(existingPlayerData);
   console.log('loaded name: ' + playerData.name);
-  return new Player(playerData.name, playerData.difficultyLevel);
+
+  let loadedPlayerObj = new Player(playerData.name);
+  loadedPlayerObj.difficultyLevel = playerData.difficultyLevel;
+  loadedPlayerObj.highScore = playerData.highScore;
+  loadedPlayerObj.singleSessionBestScore = playerData.singleSessionBestScore;
+  loadedPlayerObj.currentCategory=  playerData.currentCategory;
+  loadedPlayerObj.currentCorrectAnswers = playerData.currentCorrectAnswers;
+  loadedPlayerObj.currentNumberAskedQuestions = playerData.currentNumberAskedQuestions;
+  loadedPlayerObj.totalNumberCorrectAnswers = playerData.totalNumberCorrectAnswers;
+  loadedPlayerObj.totalNumberAskedQuestions = playerData.totalNumberAskedQuestions;
+
+  return loadedPlayerObj;
 }
 
 function fetchQuizData(url) {
@@ -102,11 +113,14 @@ function submitForm() {
     if (!existingPlayerData) {
       // console.log('need to make a new player obj');
       let activePlayer = new Player(playerName);
+      activePlayer.highScore = 99;
       activePlayer.savePlayer();
     } else {
       // console.log('need to load a player obj');
       let activePlayer = loadPlayer(playerName);
-      let quizData = fetchQuizData(urlToGet);
+      console.log(activePlayer);
+
+      // let quizData = fetchQuizData(urlToGet);
 
       // Info for loading data into Quiz Game
       // console.log('This is the Player object I can pass to the Quiz Game:');
@@ -115,7 +129,7 @@ function submitForm() {
       // fetchQuizData(urlToGet);
 
       // To be added 
-      console.log(quizData);
+      // console.log(quizData);
       // playQuizWiz(activePlayer, quizData);
 
     }
