@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome Quiz Whiz</title>
   <link rel="stylesheet" href="style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
+    <h1>Quizzard Wizzard</h1>
     <nav>
       <ol>
         <li>Home</li>
@@ -22,11 +26,47 @@
     <div>
       <form id="get-player-name">
         <fieldset>
-          <legend>What's your name?</legend>
+          <legend>Welcome Quizzards!</legend>
           <div class="user-input">
             <label for="player-name">Player Name</label>
             <input id="player-name" type="text" name="playerName"
-            placeholder="guest">
+            placeholder="username">
+
+            <label for="game-category">Category</label>
+            <select id="game-category" type="text" name="gameCategory">
+              <option value="mythology">Mythology</option>
+              <option value="animals">Animals</option>
+            </select>
+
+            <label for="number-question">#'s of questions</label>
+            <select id="number-question" type="text" name="numberQuestion">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+
+            <label>Difficulty</label>
+            <hr>
+            <div>
+              <label>
+                <input type="radio" id="game-difficulty" name="gameDifficulty" value="E" checked>
+                <p>Easy</p>
+              </label>
+              <label>
+                <input type="radio" id="game-difficulty" name="gameDifficulty" value="M" checked>
+                <p>Medium</p>
+              </label>
+              <label>
+                <input type="radio" id="game-difficulty" name="gameDifficulty" value="H" checked>
+                <p>Hard</p>
+              </label>
+            </div>
+
+            <!-- <label for="game-difficulty">Difficulty</label>
+            <input id="game-difficulty" type="text" name="gameDifficulty"
+            placeholder="easy"> -->
+
             <!-- <button type="button" id="start-game-btn">Start Game</button> -->
             <button type="button" onclick="submitForm()">Start Game</button>
           </div>
