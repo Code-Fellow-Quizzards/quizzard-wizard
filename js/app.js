@@ -159,7 +159,7 @@ function submitForm() {
 
       // console.log(activePlayer);
 
-      // let quizData = fetchQuizData(urlToGet);
+      let quizData = fetchQuizData(urlToGet);
 
       // Info for loading data into Quiz Game
       // console.log('This is the Player object I can pass to the Quiz Game:');
@@ -168,8 +168,8 @@ function submitForm() {
       // fetchQuizData(urlToGet);
 
       // To be added 
-      // console.log(quizData);
-      // playQuizWiz(activePlayer, quizData);
+      console.log(quizData);
+      playQuizWiz(activePlayer, quizData);
 
     }
   } else {

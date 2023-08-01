@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Wiz Game</title>
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/quiz.css">
 </head>
 <body>
   <header>
@@ -16,7 +16,18 @@
       </ol>
     </nav>
   </header>
-  
+  <div class="quiz-container">
+      <h1>Quiz Wiz</h1>
+      <div class="question">
+        <p id="question-text"></p>
+        <ul id="options">
+          <!-- Options will be dynamically added using JavaScript -->
+        </ul>
+      </div>
+      <div class="navigation">
+        <button id="nextBtn">Next</button>
+      </div>
+    </div>
   <script src="js/app.js"></script>
   <script src="js/quizwiz.js"></script>
 </body>
