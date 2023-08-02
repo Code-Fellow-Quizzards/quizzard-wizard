@@ -127,7 +127,7 @@ function submitForm() {
 
   // localStorage.clear();
 
-  let urlToGet = generateURL(gameCategory, numberQuestions, gameDifficulty);
+  let urlToGet = generateURL(gameCategory, NUMBER_OF_QUESTIONS, gameDifficulty);
 
   if (playerName) {
     let existingPlayerData = localStorage.getItem(playerName);
