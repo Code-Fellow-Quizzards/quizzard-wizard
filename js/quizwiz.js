@@ -48,19 +48,23 @@ console.log('quizwiz.js loaded');
 //   this.totalNumberAskedQuestions = 0;
 // }
 
-let currentPlayer = '';
-let questionData = '';
-playQuizWiz(activePlayer, quizData);
-console.log(quizData);
-askQuestions();
+// let currentPlayer = '';
+// let questionData = '';
+// // debugger;
+// playQuizWiz(activePlayer, quizData);
+// console.log(quizData);
 
 
-function playQuizWiz(player, data) {
-  currentPlayer = player;
-  questionData = data;
-  console.log(questionData);
-  loadQuestion();
-}
+// askQuestions();
+
+
+// function playQuizWiz(player, data) {
+//   let NEWcurrentPlayer = player;
+//   let NEWquestionData = data;
+//   console.log(NEWcurrentPlayer);
+//   console.log(NEWquestionData);
+//   loadQuestion();
+// }
 
 const NUMBER_ANSWER_OPTION = 4;
 
@@ -83,17 +87,35 @@ function randomAnswerArray(answers) {
   return answerArray;
 }
 
-let currentQuestion = 0;
-const questionTextElement = document.getElementById('question-text');
-const optionsElement = document.getElementById('options');
-const nextBtn = document.getElementById('nextBtn');
-// const selectedAnswers = [];
-const selectedAnswers = new Array(questionData.results.length).fill(null);
+// let currentQuestion = 0;
+// const questionTextElement = document.getElementById('question-text');
+// const optionsElement = document.getElementById('options');
+// const nextBtn = document.getElementById('nextBtn');
+// // const selectedAnswers = [];
+// // const selectedAnswers = new Array(questionData.results.length).fill(null);
+// const selectedAnswers = new Array(10).fill(null);
 
 // loads the questions from the data object and displays it using list items
-function loadQuestion() {
-  const currentQuestionData = questionData.results[currentQuestion];
-  questionTextElement.textContent = currentQuestionData.question;
+
+function generateQuestionData(urlToGet) {
+
+  return questionData;
+}
+
+function playQuizWiz(player, urlToGet) {
+
+  // let questionData = generateQuestionData(urlToGet);
+
+
+
+console.log(player);
+  
+  console.log('fix this: ' + urlToGet);
+  // let questionData = fetchAndReturnQuestionData(urlToGet);
+  // questionData.then(askQuestions);
+  // const currentQuestionData = questionData.results[currentQuestion];
+  // questionTextElement.textContent = currentQuestionData.question;
+
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
 
@@ -168,7 +190,7 @@ function showResults() {
   document.body.innerHTML = resultsHTML;
 }
 
-nextBtn.addEventListener('click', goToNextQuestion);
+// nextBtn.addEventListener('click', goToNextQuestion);
 
 // Load the first question
 // loadQuestion();

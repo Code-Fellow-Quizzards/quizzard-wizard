@@ -110,7 +110,7 @@ function fetchQuizData(url) {
     });
 }
 
-function fetchAndReturnQuestionData() {
+function fetchAndReturnQuestionData(urlToGet) {
   return fetchQuizData(urlToGet)
     .then(quizData => {
       if (quizData.response_code === 0) {
@@ -152,25 +152,28 @@ function submitForm() {
       activePlayer.highScore = 99;
       activePlayer.savePlayer();
     } else {
-      // console.log('need to load a player obj');
+      console.log('need to load a player obj');
       let activePlayer = loadPlayer(playerName);
       let questionPool = fetchAndReturnQuestionData();
       questionPool.then(askQuestions);
 
       // console.log(activePlayer);
-
-      let quizData = fetchQuizData(urlToGet);
-
+      
       // Info for loading data into Quiz Game
       // console.log('This is the Player object I can pass to the Quiz Game:');
       // console.log(activePlayer);
       // console.log('This is the quizPool object I can pass to the Quiz Game:');
       // fetchQuizData(urlToGet);
-
+      
+      // let quizData = fetchQuizData(urlToGet);
+      
       // To be added 
-      console.log(quizData);
+      // console.log(quizData);
+      // debugger;
       // playQuizWiz(activePlayer, quizData);
+      playQuizWiz(activePlayer, urlToGet);
       changePage('http://127.0.0.1:5501/quizwiz.html');
+
     }
   } else {
     console.log('no playerName');
