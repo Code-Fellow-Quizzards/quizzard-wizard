@@ -62,93 +62,72 @@ function loadPlayer(playerName) {
   return loadedPlayerObj;
 }
 
-// function fetchQuizData(url) {
-//   // GPT helping out with the API pull request
-//   fetch(url)
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//       }
-//       return response.json();
-//     })
-//     .then(data => {
-//       // Use the data here
-//       console.log(data);
-//       // return(data);
-//     })
-//     .catch(error => {
-//       console.error('Error fetching quiz data:', error);
-//     });
-// }
+const categoryCodes = {
+  'general knowledge': 9,
+  'entertainment: books': 10,
+  'entertainment: film': 11,
+  'entertainment: music': 12,
+  'entertainment: musicals & theatres': 13,
+  'entertainment: television': 14,
+  'entertainment: video games': 15,
+  'entertainment: board games': 16,
+  'science & nature': 17,
+  'science: computers': 18,
+  'science: mathematics': 19,
+  'mythology': 20,
+  'sports': 21,
+  'geography': 22,
+  'history': 23,
+  'politics': 24,
+  'art': 25,
+  'celebrities': 26,
+  'animals': 27,
+  'vehicles': 28,
+  'entertainment: comics': 29,
+  'science: gadgets': 30,
+  'entertainment: japanese anime & manga': 31,
+  'entertainment: cartoon & animations': 32,
+};
+
+
+
+function generateURL(gameCategory, numberQuestions, gameDifficulty) {
+
+  let chosenCategory = categoryCodes[gameCategory];
+
+
+  let newURL = 'https://opentdb.com/api.php?';
+  newURL += 'amount=' + numberQuestions + '&';
+  newURL += 'category=' + chosenCategory + '&';
+  newURL += 'difficulty=' + gameDifficulty + '&';
+  newURL += 'type=multiple';
+
+  return newURL;
+}
+
+// Nortstar
+// https://opentdb.com/api.php?amount=10&category=20&difficulty=easy&type=multiple
+// Does not work
+// https://opentdb.com/api.php?amount=20&category=mythology&difficulty=medium&type=multiple
 
 ////////////////////////////////////////////////////////////////////////////////
-// We'll be experimenting with a few URL's here
-////////////////////////////////////////////////////////////////////////////////
-let urlToGet = 'https://opentdb.com/api.php?amount=10&category=20&difficulty=easy&type=multiple';
-// let urlToGet = 'https://opentdb.com/api_category.php';
-// let urlToGet = '';
-// let urlToGet = '';
-// let urlToGet = '';
-////////////////////////////////////////////////////////////////////////////////
 
-// function fetchQuizData(url) {
-//   // GPT helping out with the API pull request
-
-//   return fetch(url)
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//       }
-//       return response.json();
-//     })
-//     .then(data => {
-//       // Use the data here
-//       // console.log(data);
-//       return(data);
-//     })
-//     .catch(error => {
-//       console.error('Error fetching quiz data:', error);
-//     });
-// }
-
-// function fetchAndReturnQuestionData(urlToGet) {
-//   return fetchQuizData(urlToGet)
-//     .then(quizData => {
-//       if (quizData.response_code === 0) {
-//         return quizData.results;
-//       } else {
-//         console.log('There was an error collecting questions: ' + quizData.response_code);
-//       }
-//     });
-// }
-
-// function askQuestions(questionPool) {
-//   console.log('This is where your question function can go. All questions are in questionPool');
-//   console.log(questionPool);
-// }
-
-
-// function playQuiz(activePlayer) {
-//   console.log('We\'re now playing with: ' + activePlayer.name);
-//   // for loop (10 iteration) {
-//   //   questionArray = returnAnswerArray();
-//   //   askQuestion[i];
-//   //   gameLogic();
-//   //   activePlayer.savePlayer();
-//   // }
-// }
-    
 function submitForm() {
   const playerNameInput = document.getElementById('player-name');
   const playerName = playerNameInput.value.trim();
   const gameCategoryInput = document.getElementById('game-category');
-  const gameCategory = gameCategoryInput.value;
+  const gameCategory = gameCategoryInput.value.toLowerCase();
   const numberQuestionInput = document.getElementById('number-question');
+  
+//  const numberQuestions = numberQuestionInput.value;
   NUMBER_OF_QUESTIONS = numberQuestionInput.value;
+  
   const gameDifficultyInput = document.querySelector('input[name="gameDifficulty"]:checked');
-  const gameDifficulty = gameDifficultyInput.value;
+  const gameDifficulty = gameDifficultyInput.value.toLowerCase();
 
   // localStorage.clear();
+
+  let urlToGet = generateURL(gameCategory, numberQuestions, gameDifficulty);
 
   if (playerName) {
     let existingPlayerData = localStorage.getItem(playerName);
@@ -163,39 +142,20 @@ function submitForm() {
       // cal load function here => invoke questions
       console.log('need to load a player obj');
       let activePlayer = loadPlayer(playerName);
-      // let questionPool = fetchAndReturnQuestionData();
-      // questionPool.then(askQuestions);
-
-      // console.log(activePlayer);
-      
-      // Info for loading data into Quiz Game
-      // console.log('This is the Player object I can pass to the Quiz Game:');
-      // console.log(activePlayer);
-      // console.log('This is the quizPool object I can pass to the Quiz Game:');
-      // fetchQuizData(urlToGet);
-      
-      // let quizData = fetchQuizData(urlToGet);
-      
-      // To be added 
       console.log('player: ' + activePlayer);
       console.log('urlToGet: ' + urlToGet);
-      // debugger;
-      // playQuizWiz(activePlayer, quizData);
+
       prepareQuiz(activePlayer, urlToGet);
-      // console.log('called prepareQuiz');
-      // changePage('http://127.0.0.1:5501/quizwiz.html');
 
     }
 
     console.log('Selected Category', gameCategory);
+  //  console.log('Number of Questions', numberQuestions);
     console.log('Number of Questions', NUMBER_OF_QUESTIONS);
+    
     console.log('Difficulty Level', gameDifficulty);
 
   } else {
     console.log('no playerName');
   }
-}
-
-function changePage(url) {
-  window.location.href = url;
 }
