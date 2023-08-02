@@ -280,7 +280,6 @@ input[type='text'] {
 }
 
 button#nextBtn, button#leadBtn, button#playBtn {
-  /* padding: 5px 10px; */
   background-color: rgb(76, 175, 80);
   border: none;
   color: #fff;
@@ -342,4 +341,23 @@ ul {
 
 #hideBtn {
   display: none;
+}
+
+.navigation-styling {
+  display: flex;
+  /* margin: 0 auto; */
+  justify-content: space-between;
+}
+
+button#leadBtn, button#playBtn {
+margin: 0 100px;
+  background-color: rgb(76, 175, 80);
+  border: none;
+  color: #fff;
+  cursor: url('/proj/img/opal-pointer.png'), auto;
+  border-radius: 8px;
+  transition: color 0.5s;
+  font-family: 'Audiowide', cursive;
+  margin-top: 10px;
+  animation: idleButtonAnimation 2s infinite;
 }

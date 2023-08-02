@@ -161,13 +161,16 @@ function showResults() {
   let leaderboardButton = document.createElement('button');
   playAgainButton.setAttribute('id', 'playBtn');
   leaderboardButton.setAttribute('id', 'leadBtn');
+
   questionTextElement.textContent = `Thanks for playing ${playerPool.name}`;
   optionsElement.innerHTML = `<p>Correct Answers = ${playerPool.currentCorrectAnswers}</p><br /><p>Number of Questions = ${playerPool.currentNumberAskedQuestions}</p><br /><p>Lifetime Correct Answers = ${playerPool.totalNumberCorrectAnswers}</p><br /><p>Lifetime Number of Questions = ${playerPool.totalNumberAskedQuestions}</p><br />`;
   playAgainButton.textContent = 'Play Again';
   leaderboardButton.textContent = 'Leaderboard';
+
   playAgainButton.addEventListener('click', resetPage);
   leaderboardButton.addEventListener('click', showLeaderboardPage);
   hideButton();
+  QUIZ_NAVIGATION.setAttribute('class', 'navigation-styling');
   QUIZ_NAVIGATION.appendChild(playAgainButton);
   QUIZ_NAVIGATION.appendChild(leaderboardButton);
 }
