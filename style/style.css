@@ -275,12 +275,10 @@ input[type='text'] {
   margin: 0;
 }
 
-#navigation {
-  width: 50px;
-}
-
-button#nextBtn, button#leadBtn, button#playBtn {
+button#nextBtn {
+  margin: 0 auto;
   background-color: rgb(76, 175, 80);
+  justify-content: center;
   border: none;
   color: #fff;
   cursor: url('/proj/img/opal-pointer.png'), auto;
@@ -349,8 +347,9 @@ ul {
   justify-content: space-between;
 }
 
-button#leadBtn, button#playBtn {
-margin: 0 100px;
+button#leadBtn,
+button#playBtn {
+  width: 120px;
   background-color: rgb(76, 175, 80);
   border: none;
   color: #fff;

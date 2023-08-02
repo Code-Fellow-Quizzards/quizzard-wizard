@@ -170,7 +170,7 @@ function showResults() {
   playAgainButton.addEventListener('click', resetPage);
   leaderboardButton.addEventListener('click', showLeaderboardPage);
   hideButton();
-  QUIZ_NAVIGATION.setAttribute('class', 'navigation-styling');
+  // QUIZ_NAVIGATION.setAttribute('class', 'navigation-styling');
   QUIZ_NAVIGATION.appendChild(playAgainButton);
   QUIZ_NAVIGATION.appendChild(leaderboardButton);
 }
