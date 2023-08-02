@@ -112,7 +112,7 @@ function generateURL(gameCategory, numberQuestions, gameDifficulty) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function submitForm() {
+function startGame() {
   const playerNameInput = document.getElementById('player-name');
   const playerName = playerNameInput.value.trim();
   const gameCategoryInput = document.getElementById('game-category');

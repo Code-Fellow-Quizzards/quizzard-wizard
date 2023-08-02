@@ -60,14 +60,11 @@ function playQuizWiz(player, questionData) {
   questionPool = questionData;
   playerPool = player;
   console.log(player);
-  playerPool.currentCorrectAnswers = 0;
-  playerPool.currentNumberAskedQuestions = 0;
-  loadQuestion();
-}
-
-function loadQuestion() {
-  const currentQuestionData = questionPool.results[currentQuestion];
-  questionTextElement.textContent = currentQuestionData.question;
+  console.log('hi' + questionPool);
+  // let questionData = fetchAndReturnQuestionData(urlToGet);
+  // questionData.then(askQuestions);
+  const currentQuestionData = questionData.results[currentQuestion];
+  questionTextElement.innerHTML = currentQuestionData.question;
 
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
@@ -91,13 +88,13 @@ function loadQuestion() {
     });
     li.appendChild(input);
     const label = document.createElement('label');
-    label.textContent = option;
+    label.innerHTML = option;
     label.setAttribute('for', `option${i}`);
     li.appendChild(label);
     optionsElement.appendChild(li);
   }
-  nextBtn.textContent =
-    currentQuestion === questionPool.results.length - 1 ? 'Submit' : 'Next';
+  nextBtn.innerHTML =
+    currentQuestion === questionData.results.length - 1 ? 'Submit' : 'Next';
 }
 
 // checks the players answers with the actual answers and iterates the score and questions ask counter accordingly
