@@ -68,7 +68,7 @@ function playQuizWiz(player, questionData) {
   // let questionData = fetchAndReturnQuestionData(urlToGet);
   // questionData.then(askQuestions);
   const currentQuestionData = questionData.results[currentQuestion];
-  questionTextElement.textContent = currentQuestionData.question;
+  questionTextElement.innerHTML = currentQuestionData.question;
 
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
@@ -92,12 +92,12 @@ function playQuizWiz(player, questionData) {
     });
     li.appendChild(input);
     const label = document.createElement('label');
-    label.textContent = option;
+    label.innerHTML = option;
     label.setAttribute('for', `option${i}`);
     li.appendChild(label);
     optionsElement.appendChild(li);
   }
-  nextBtn.textContent =
+  nextBtn.innerHTML =
     currentQuestion === questionData.results.length - 1 ? 'Submit' : 'Next';
 }
 
