@@ -314,3 +314,8 @@ footer {
 hr {
   border-color: #444;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
