@@ -22,17 +22,17 @@ function Player(playerName) {
 
 
 Player.prototype.savePlayer = function () {
-    const playerData = {
-      name: this.name,
-      difficultyLevel: this.difficultyLevel,
-      highScore: this.highScore,
-      singleSessionBestScore: this.singleSessionBestScore,
-      currentCategory: this.currentCategory,
-      currentCorrectAnswers: this.currentCorrectAnswers,
-      currentNumberAskedQuestions: this.currentNumberAskedQuestions,
-      totalNumberCorrectAnswers: this.totalNumberCorrectAnswers,
-      totalNumberAskedQuestions: this.totalNumberAskedQuestions,
-    };
+  const playerData = {
+    name: this.name,
+    difficultyLevel: this.difficultyLevel,
+    highScore: this.highScore,
+    singleSessionBestScore: this.singleSessionBestScore,
+    currentCategory: this.currentCategory,
+    currentCorrectAnswers: this.currentCorrectAnswers,
+    currentNumberAskedQuestions: this.currentNumberAskedQuestions,
+    totalNumberCorrectAnswers: this.totalNumberCorrectAnswers,
+    totalNumberAskedQuestions: this.totalNumberAskedQuestions,
+  };
 
   localStorage.setItem(this.name, JSON.stringify(playerData));
   console.log('saved: ' + this.name);
@@ -52,7 +52,7 @@ function loadPlayer(playerName) {
   loadedPlayerObj.difficultyLevel = playerData.difficultyLevel;
   loadedPlayerObj.highScore = playerData.highScore;
   loadedPlayerObj.singleSessionBestScore = playerData.singleSessionBestScore;
-  loadedPlayerObj.currentCategory=  playerData.currentCategory;
+  loadedPlayerObj.currentCategory= playerData.currentCategory;
   loadedPlayerObj.currentCorrectAnswers = playerData.currentCorrectAnswers;
   loadedPlayerObj.currentNumberAskedQuestions = playerData.currentNumberAskedQuestions;
   loadedPlayerObj.totalNumberCorrectAnswers = playerData.totalNumberCorrectAnswers;
@@ -174,11 +174,13 @@ function submitForm() {
       // let quizData = fetchQuizData(urlToGet);
       
       // To be added 
-      // console.log(quizData);
+      console.log('player: ' + activePlayer);
+      console.log('urlToGet: ' + urlToGet);
       // debugger;
       // playQuizWiz(activePlayer, quizData);
-      playQuizWiz(activePlayer, urlToGet);
-      changePage('http://127.0.0.1:5501/quizwiz.html');
+      prepareQuiz(activePlayer, urlToGet);
+      // console.log('called prepareQuiz');
+      // changePage('http://127.0.0.1:5501/quizwiz.html');
 
     }
 
