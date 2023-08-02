@@ -149,3 +149,16 @@ function showResults() {
 }
 
 nextBtn.addEventListener('click', goToNextQuestion);
+
+function startQuiz() {
+  const formContainer = document.getElementById('formContainer');
+  const quizContainer = document.getElementById('quizContainer');
+
+  formContainer.style.display = 'none';
+
+  quizContainer.style.display = 'flex';
+  quizContainer.style.flex = '1';
+}
+const startQuizButton = document.getElementById('startQuizButton');
+startQuizButton.addEventListener('click', startQuiz);
+
