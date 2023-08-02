@@ -177,7 +177,6 @@ function showResults() {
 
 nextBtn.addEventListener('click', goToNextQuestion);
 
-
 // reloads the current page
 function resetPage() {
   location.reload();
@@ -191,3 +190,16 @@ function hideButton() {
   let hideThisButton = document.getElementById('nextBtn');
   hideThisButton.parentNode.removeChild(hideThisButton);
 }
+
+function startQuiz() {
+  const formContainer = document.getElementById('formContainer');
+  const quizContainer = document.getElementById('quizContainer');
+
+  formContainer.style.display = 'none';
+
+  quizContainer.style.display = 'flex';
+  quizContainer.style.flex = '1';
+}
+const startQuizButton = document.getElementById('startQuizButton');
+startQuizButton.addEventListener('click', startQuiz);
+

@@ -40,17 +40,19 @@
   </header>
   
   <main>
-    <h2>Quiz Whiz</h2>
-    <div>
+    <div class="form-container" id="formContainer">
       <form id="get-player-name">
         <fieldset>
           <legend>Welcome Quizzards!</legend>
           <div class="user-input">
+            <hr>
             <label for="player-name">Player Name</label>
+            <span>Enter your desired player name.</span>
             <input id="player-name" type="text" name="playerName"
             placeholder="username">
-
+            <hr>
             <label for="game-category">Category</label>
+            <span>Select your preferred quiz category.</span>
             <select id="game-category" type="text" name="gameCategory">
               <option value="general knowledge">General Knowledge</option>
               <option value="entertainment: books">Entertainment: Books</option>
@@ -77,17 +79,18 @@
               <option value="entertainment: japanese anime & manga">Entertainment: Japanese Anime & Manga</option>
               <option value="entertainment: cartoon & animations">Entertainment: Cartoon & Animations</option>
             </select>
-
+            <hr>
             <label for="number-question">#'s of questions</label>
+            <span>Choose the number of questions you want to answer.</span>
             <select id="number-question" type="text" name="numberQuestion">
               <option value="10">10</option>
               <option value="15">15</option>
               <option value="20">20</option>
               <option value="25">25</option>
             </select>
-
-            <label>Difficulty</label>
             <hr>
+            <label>Difficulty</label>
+            <span>Select the difficulty level for the quiz.</span>
             <div>
               <label>
                 <input type="radio" id="game-difficulty" name="gameDifficulty" value="easy" checked>
@@ -102,24 +105,52 @@
                 <p>Hard</p>
               </label>
             </div>
+            <hr>
+            <span>Click "Start Quiz" to begin. </span>
 
             <!-- <label for="game-difficulty">Difficulty</label>
             <input id="game-difficulty" type="text" name="gameDifficulty"
             placeholder="easy"> -->
 
-            <!-- <button type="button" id="start-game-btn">Start Game</button> -->            
-            <button class="idle-button" type="button" onclick="submitForm()">Start Game</button>
+            <!-- <button type="button" id="start-game-btn">Start Game</button> -->   
+          <div class="button-container">
+            <button class="idle-button" id="startQuizButton" type="button" onclick="submitForm()">Start Quiz</button>
+          </div>         
           </div>
         </fieldset>
-
       </form>
-
+      <!-- <div class="instructions">
+        <h3>How to play the game!</h3>
+        <ol>
+          <li>
+            Create a unique username to start the game.
+          </li>
+          <li>
+            Select the quiz category, number of questions, and difficulty level.
+          </li>
+          <li>
+            Click "Start Quiz" to begin the quiz.
+          </li>
+          <li>
+            Answer multiple-choice questions one at a time.
+          </li>
+          <li>
+            Retake the quiz to improve your score.
+          </li>
+          <li>
+            Check the "Leaderboard" to see top scores.
+          </li>
+        </ol>
+      </div> -->
     </div>
 
-    <div class="quiz-container">
+    <div class="quiz-container" id="quizContainer">
       <h1>Quiz Wiz</h1>
+      <p id="score">Score: 0</p>
+      <p id="questionsRemaining">QuestionsRemaining: 0</p>
+      <hr class="quiz-wiz-hr">
       <div class="question">
-      <p id="question-text">Questions goes here!</p>
+        <p id="question-text">Questions goes here!</p>
         <ul id="options">
           <!-- Options will be dynamically added using JavaScript -->
         </ul>
@@ -127,9 +158,10 @@
       <div class="navigation-styling" id="navigation">
         <button id="nextBtn">Next</button>
       </div>
-  </div>
-
+    </div>
   </main>
+  <section>
+  </section>
   <footer>
     <hr>
     Handcrafted in WA, USA
