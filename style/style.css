@@ -1,4 +1,4 @@
-nav {
+/* nav {
   color: salmon;
 }
 
@@ -9,7 +9,7 @@ footer {
 fieldset {
   width: 50vw;
   width: fit-content;
-}
+} */
 /* 
 h1 {
 
@@ -19,3 +19,239 @@ h1 {
   border-width: 11px;
   border: dashed blue;
 } */
+
+
+body {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  font-family: 'Audiowide', cursive;
+  margin: 0;
+  padding: 0;
+}
+  
+
+header {
+  height: 120px;
+  padding: 10px;
+
+}
+
+h1 {
+  animation: neon1 2.5s ease-in-out infinite alternate;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #064011, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #4CAF50, 0 0 70px #4CAF50, 0 0 70px #4CAF50, 0 0 100px #4CAF50, 0 0 100px #4CAF50;
+  }
+  to {
+    text-shadow: 0 0 5px #064011, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #05230a, 0 0 35px #05230a, 0 0 40px #05230a, 0 0 50px #05230a, 0 0 75px #05230a;
+  }
+}
+
+nav {
+  text-align: center;
+}
+
+ol {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+ol li {
+  list-style: none;
+  /* margin: 0 15px; */
+  margin: 0 10px;
+  padding: 5px 10px;
+  /* background-color: #4CAF50; */
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+ol li a {
+  position: relative; 
+  display: block;
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  line-height: 63px;
+  background: #073910;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #073910;
+  transition: .5s;
+  text-decoration: none;
+  color: #fff;
+}
+
+ol li i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ol li span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #fff;
+}
+
+ol li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1b8b2b;
+  transition: .10s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+ol li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #1b8b2b;
+}
+
+ol li a:hover {
+  color: #1b8b2b;
+  box-shadow: 0 0 10px #1b8b2b;
+  text-shadow: 0 0 10px #ffee10;
+}
+
+main {
+  text-align: center;
+  padding: 20px;
+}
+
+
+h2 {
+  margin: 0;
+}
+
+#leaderboard-table {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92,71,255,0) 50%, rgba(92,71,255,0) 100%);
+}
+
+#leaderboard-table th,
+#leaderboard-table td {
+  padding: 10px;
+}
+
+#leaderboard-table th {
+  background-color: #021605;
+  color: #fff;
+  border-radius: 20px;
+}
+
+form {
+  width: 40%;
+  margin: 0 auto;
+  display: inline-block;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+	background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92,71,255,0) 50%, rgba(92,71,255,0) 100%);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  
+}
+
+input,
+select {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #222;
+  color: #fff;
+  font-family: 'Audiowide', cursive;
+  text-align: center;
+}
+
+#player-name {
+  width: 100%;
+}
+
+input[type="radio"] {
+  margin: 0;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label p {
+  margin: 0;
+  margin-left: 5px;
+}
+
+#game-difficulty {
+  width: 20px;
+}
+
+input[type="text"] {
+  font-family: 'Audiowide', cursive;
+}
+
+button.idle-button {
+  padding: 5px 10px;
+  background-color: rgb(76, 175, 80);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: color 0.5s;
+  font-family: 'Audiowide', cursive;
+  margin-top: 10px;
+  animation: idleButtonAnimation 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background-color: #011;
+}
+
+@keyframes idleButtonAnimation {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+hr {
+  border-color: #444;
+}

@@ -140,6 +140,12 @@ function playQuiz(activePlayer) {
 function submitForm() {
   const playerNameInput = document.getElementById('player-name');
   const playerName = playerNameInput.value.trim();
+  const gameCategoryInput = document.getElementById('game-category');
+  const gameCategory = gameCategoryInput.value;
+  const numberQuestionInput = document.getElementById('number-question');
+  const numberQuestion = numberQuestionInput.value;
+  const gameDifficultyInput = document.querySelector('input[name="gameDifficulty"]:checked');
+  const gameDifficulty = gameDifficultyInput.value;
 
   // localStorage.clear();
 
@@ -175,6 +181,11 @@ function submitForm() {
       changePage('http://127.0.0.1:5501/quizwiz.html');
 
     }
+
+    console.log('Selected Category', gameCategory);
+    console.log('Number of Questions', numberQuestion);
+    console.log('Difficulty Level', gameDifficulty);
+
   } else {
     console.log('no playerName');
   }
