@@ -9,6 +9,7 @@ body {
 }
 
 /* Header styles */
+
 header {
   height: 120px;
   padding: 10px;
@@ -25,10 +26,13 @@ h1 {
 
 @keyframes neon1 {
   from {
-    text-shadow: 0 0 10px #064011, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #4CAF50, 0 0 70px #4CAF50, 0 0 70px #4CAF50, 0 0 100px #4CAF50, 0 0 100px #4CAF50;
+    text-shadow: 0 0 10px #064011, 0 0 20px #fff, 0 0 30px #fff,
+      0 0 40px #4caf50, 0 0 70px #4caf50, 0 0 70px #4caf50, 0 0 100px #4caf50,
+      0 0 100px #4caf50;
   }
   to {
-    text-shadow: 0 0 5px #064011, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #05230a, 0 0 35px #05230a, 0 0 40px #05230a, 0 0 50px #05230a, 0 0 75px #05230a;
+    text-shadow: 0 0 5px #064011, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #05230a,
+      0 0 35px #05230a, 0 0 40px #05230a, 0 0 50px #05230a, 0 0 75px #05230a;
   }
 }
 
@@ -58,7 +62,7 @@ ol li {
 }
 
 ol li a {
-  position: relative; 
+  position: relative;
   display: block;
   width: 60px;
   height: 40px;
@@ -68,7 +72,7 @@ ol li a {
   border-radius: 50%;
   font-size: 20px;
   color: #073910;
-  transition: .5s;
+  transition: 0.5s;
   text-decoration: none;
   color: #fff;
 }
@@ -98,8 +102,8 @@ ol li a::before {
   height: 100%;
   border-radius: 50%;
   background: #1b8b2b;
-  transition: .10s;
-  transform: scale(.9);
+  transition: 0.1s;
+  transform: scale(0.9);
   z-index: -1;
 }
 
@@ -125,6 +129,20 @@ h2 {
   margin: 0;
 }
 
+
+#leaderboard-table {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(67, 140, 59) 1%,
+    rgba(92, 71, 255, 0) 50%,
+    rgba(92, 71, 255, 0) 100%
+  );
+
 .form-container {
   flex: 3;
   margin-right: 20px;
@@ -132,6 +150,7 @@ h2 {
   flex-direction: column;
   font-weight: 200;
   text-align: center;
+
 }
 
 .button-container {
@@ -190,7 +209,14 @@ form {
   background-color: #333;
   padding: 20px;
   border-radius: 10px;
-  background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92,71,255,0) 50%, rgba(92,71,255,0) 100%);
+
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(67, 140, 59) 1%,
+    rgba(92, 71, 255, 0) 50%,
+    rgba(92, 71, 255, 0) 100%
+  );
+
   cursor: url('/proj/img/opal.png'), auto;
 }
 
@@ -248,7 +274,7 @@ select {
   width: 100%;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   margin: 0;
 }
 
@@ -268,11 +294,34 @@ label p {
   width: 20px;
 }
 
-input[type="text"] {
+input[type='text'] {
   font-family: 'Audiowide', cursive;
 }
 
+.quiz-container {
+  width: 50%;
+  height: 100%;
+  margin: 50px auto;
+  /* display: inline-block; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(67, 140, 59) 1%,
+    rgba(92, 71, 255, 0) 50%,
+    rgba(92, 71, 255, 0) 100%
+  );
+}
+
+
 /* Quiz question styles */
+
 .question {
   text-align: center;
   font-size: 26px;
@@ -310,12 +359,11 @@ input[type="text"] {
 }
 
 /* Navigation button styles */
-.navigation {
-  width: 50px;
-}
 
 button#nextBtn {
+  margin: 0 auto;
   background-color: rgb(76, 175, 80);
+  justify-content: center;
   border: none;
   color: #fff;
   cursor: url('/proj/img/opal-pointer.png'), auto;
@@ -338,6 +386,16 @@ button#nextBtn {
   font-size: 15px;
   margin: 0;
 }
+
+
+@keyframes idleButtonAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 
 #questionsRemaining {
   font-size: 15px;
@@ -367,6 +425,30 @@ ul {
   padding: 0;
 }
 
+
+#hideBtn {
+  display: none;
+}
+
+.navigation-styling {
+  display: flex;
+  /* margin: 0 auto; */
+  justify-content: space-between;
+}
+
+button#leadBtn,
+button#playBtn {
+  width: 120px;
+  background-color: rgb(76, 175, 80);
+  border: none;
+  color: #fff;
+  cursor: url('/proj/img/opal-pointer.png'), auto;
+  border-radius: 8px;
+  transition: color 0.5s;
+  font-family: 'Audiowide', cursive;
+  margin-top: 10px;
+  animation: idleButtonAnimation 2s infinite;
+  }
 /* Leaderboard styles */
 
 .leaderboard-main{
@@ -375,6 +457,7 @@ ul {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+
 }
 
 .leaderboard-container {

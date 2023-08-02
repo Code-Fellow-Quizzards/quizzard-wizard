@@ -30,8 +30,6 @@ let currentQuestion = 0;
 const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
 const nextBtn = document.getElementById('nextBtn');
-// const selectedAnswers = [];
-// // const selectedAnswers = new Array(questionData.results.length).fill(null);
 const selectedAnswers = new Array(10).fill(null);
 
 // loads the questions from the data object and displays it using list items
@@ -61,13 +59,14 @@ function prepareQuiz(activePlayer, urlToGet) {
 function playQuizWiz(player, questionData) {
   questionPool = questionData;
   playerPool = player;
-  console.log("Paul's function works!:");
-  console.log(questionData.results);
   console.log(player);
-  console.log('hi' + questionPool);
-  // let questionData = fetchAndReturnQuestionData(urlToGet);
-  // questionData.then(askQuestions);
-  const currentQuestionData = questionData.results[currentQuestion];
+  playerPool.currentCorrectAnswers = 0;
+  playerPool.currentNumberAskedQuestions = 0;
+  loadQuestion();
+}
+
+function loadQuestion() {
+  const currentQuestionData = questionPool.results[currentQuestion];
   questionTextElement.textContent = currentQuestionData.question;
 
   optionsElement.innerHTML = '';
@@ -98,16 +97,19 @@ function playQuizWiz(player, questionData) {
     optionsElement.appendChild(li);
   }
   nextBtn.textContent =
-    currentQuestion === questionData.results.length - 1 ? 'Submit' : 'Next';
+    currentQuestion === questionPool.results.length - 1 ? 'Submit' : 'Next';
 }
 
 // checks the players answers with the actual answers and iterates the score and questions ask counter accordingly
 function evaluateAnswer(userAnswer, actualAnswer) {
+  playerPool.currentNumberAskedQuestions++;
+  playerPool.totalNumberAskedQuestions++;
   if (userAnswer === actualAnswer) {
     playerPool.currentCorrectAnswers++;
-    playerPool.currentNumberAskedQuestions++;
+    playerPool.totalNumberCorrectAnswers++;
+    playerPool.savePlayer();
   } else {
-    playerPool.currentNumberAskedQuestions++;
+    playerPool.savePlayer();
   }
 }
 
@@ -119,8 +121,8 @@ function goToNextQuestion() {
       selectedAnswers[currentQuestion - 1],
       questionPool.results[currentQuestion - 1].correct_answer
     );
-    // console.log(player);
-    playQuizWiz(playerPool, questionPool);
+    console.log(playerPool);
+    loadQuestion();
   } else {
     currentQuestion++;
     evaluateAnswer(
@@ -132,23 +134,62 @@ function goToNextQuestion() {
   }
 }
 
+// function showResults() {
+//   // Display the user's selected answers (you can customize the output as per your requirements)
+//   let resultsHTML = '<h2>Results</h2>';
+//   for (let i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+//     const userAnswer = selectedAnswers[i];
+//     const correctAnswer = questionPool.results[i].correct_answer;
+//     const isCorrect = userAnswer === correctAnswer;
+//     resultsHTML += `<p>Question ${
+//       i + 1
+//     }: Your answer - ${userAnswer}, Correct answer - ${correctAnswer}, ${
+//       isCorrect ? 'Correct' : 'Incorrect'
+//     }</p>`;
+//   }
+//   document.body.innerHTML = resultsHTML;
+// }
+
+const QUIZ_NAVIGATION = document.getElementById('navigation');
+// const playBtn = document.getElementById('playBtn');
+// const leadBtn = document.getElementById('leadBtn');
+
+
+// Display the user's selected answers (you can customize the output as per your requirements)
 function showResults() {
-  // Display the user's selected answers (you can customize the output as per your requirements)
-  let resultsHTML = '<h2>Results</h2>';
-  for (let i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-    const userAnswer = selectedAnswers[i];
-    const correctAnswer = questionPool.results[i].correct_answer;
-    const isCorrect = userAnswer === correctAnswer;
-    resultsHTML += `<p>Question ${
-      i + 1
-    }: Your answer - ${userAnswer}, Correct answer - ${correctAnswer}, ${
-      isCorrect ? 'Correct' : 'Incorrect'
-    }</p>`;
-  }
-  document.body.innerHTML = resultsHTML;
+  let playAgainButton = document.createElement('button');
+  let leaderboardButton = document.createElement('button');
+  playAgainButton.setAttribute('id', 'playBtn');
+  leaderboardButton.setAttribute('id', 'leadBtn');
+
+  questionTextElement.textContent = `Thanks for playing ${playerPool.name}`;
+  optionsElement.innerHTML = `<p>Correct Answers = ${playerPool.currentCorrectAnswers}</p><br /><p>Number of Questions = ${playerPool.currentNumberAskedQuestions}</p><br /><p>Lifetime Correct Answers = ${playerPool.totalNumberCorrectAnswers}</p><br /><p>Lifetime Number of Questions = ${playerPool.totalNumberAskedQuestions}</p><br />`;
+  playAgainButton.textContent = 'Play Again';
+  leaderboardButton.textContent = 'Leaderboard';
+
+  playAgainButton.addEventListener('click', resetPage);
+  leaderboardButton.addEventListener('click', showLeaderboardPage);
+  hideButton();
+  // QUIZ_NAVIGATION.setAttribute('class', 'navigation-styling');
+  QUIZ_NAVIGATION.appendChild(playAgainButton);
+  QUIZ_NAVIGATION.appendChild(leaderboardButton);
 }
 
 nextBtn.addEventListener('click', goToNextQuestion);
+
+// reloads the current page
+function resetPage() {
+  location.reload();
+}
+
+function showLeaderboardPage() {
+  window.location.href = 'leaderboard.html';
+}
+
+function hideButton() {
+  let hideThisButton = document.getElementById('nextBtn');
+  hideThisButton.parentNode.removeChild(hideThisButton);
+}
 
 function startQuiz() {
   const formContainer = document.getElementById('formContainer');
