@@ -109,8 +109,6 @@ function evaluateAnswer(userAnswer, actualAnswer) {
   } else {
     playerPool.currentNumberAskedQuestions++;
   }
-
-
 }
 
 // this is a callback function for the next button event listener.
@@ -124,6 +122,11 @@ function goToNextQuestion() {
     // console.log(player);
     playQuizWiz(playerPool, questionPool);
   } else {
+    currentQuestion++;
+    evaluateAnswer(
+      selectedAnswers[currentQuestion - 1],
+      questionPool.results[currentQuestion - 1].correct_answer
+    );
     // Submit the quiz (you can add your submission logic here)
     showResults();
   }
