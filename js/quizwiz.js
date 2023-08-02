@@ -2,53 +2,65 @@
 
 console.log('quizwiz.js loaded');
 
-const questionData = {
-  response_code: 0,
-  results: [
-    {
-      category: 'Mythology',
-      type: 'multiple',
-      difficulty: 'easy',
-      question:
-        'Who was the only god from Greece who did not get a name change in Rome?',
-      correct_answer: 'Apollo',
-      incorrect_answers: ['Zeus', 'Hermes', 'Poseidon'],
-    },
-    {
-      category: 'Mythology',
-      type: 'multiple',
-      difficulty: 'easy',
-      question:
-        'The ancient Roman god of war was commonly known as which of the following?',
-      correct_answer: 'Mars',
-      incorrect_answers: ['Jupiter', 'Mercury', 'Venus'],
-    },
-    {
-      category: 'Mythology',
-      type: 'multiple',
-      difficulty: 'easy',
-      question: 'Who was the King of Gods in Ancient Greek mythology?',
-      correct_answer: 'Zeus',
-      incorrect_answers: ['Hera', 'Poseidon', 'Ares'],
-    },
-  ],
-};
+// USED TO TEST IT
+// const questionData = {
+//   response_code: 0,
+//   results: [
+//     {
+//       category: 'Mythology',
+//       type: 'multiple',
+//       difficulty: 'easy',
+//       question:
+//         'Who was the only god from Greece who did not get a name change in Rome?',
+//       correct_answer: 'Apollo',
+//       incorrect_answers: ['Zeus', 'Hermes', 'Poseidon'],
+//     },
+//     {
+//       category: 'Mythology',
+//       type: 'multiple',
+//       difficulty: 'easy',
+//       question:
+//         'The ancient Roman god of war was commonly known as which of the following?',
+//       correct_answer: 'Mars',
+//       incorrect_answers: ['Jupiter', 'Mercury', 'Venus'],
+//     },
+//     {
+//       category: 'Mythology',
+//       type: 'multiple',
+//       difficulty: 'easy',
+//       question: 'Who was the King of Gods in Ancient Greek mythology?',
+//       correct_answer: 'Zeus',
+//       incorrect_answers: ['Hera', 'Poseidon', 'Ares'],
+//     },
+//   ],
+// };
 
-function Player(playerName) {
-  this.name = playerName;
-  // this.difficultyLevel = EASY_DIFFICULTY;
+// function Player(playerName) {
+//   this.name = playerName;
+//   // this.difficultyLevel = EASY_DIFFICULTY;
 
-  this.highScore = 0;
-  this.singleSessionBestScore = 0;
-  this.currentCategory = 0;
-  this.currentCorrectAnswers = 0;
-  this.currentNumberAskedQuestions = 0;
-  this.totalNumberCorrectAnswers = 0;
-  this.totalNumberAskedQuestions = 0;
+//   this.highScore = 0;
+//   this.singleSessionBestScore = 0;
+//   this.currentCategory = 0;
+//   this.currentCorrectAnswers = 0;
+//   this.currentNumberAskedQuestions = 0;
+//   this.totalNumberCorrectAnswers = 0;
+//   this.totalNumberAskedQuestions = 0;
+// }
+
+let currentPlayer = '';
+let questionData = '';
+playQuizWiz(activePlayer, quizData);
+console.log(quizData);
+askQuestions();
+
+
+function playQuizWiz(player, data) {
+  currentPlayer = player;
+  questionData = data;
+  console.log(questionData);
+  loadQuestion();
 }
-
-let player = new Player('Chester');
-
 
 const NUMBER_ANSWER_OPTION = 4;
 
@@ -74,6 +86,7 @@ let currentQuestion = 0;
 const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
 const nextBtn = document.getElementById('nextBtn');
+// const selectedAnswers = [];
 const selectedAnswers = new Array(questionData.results.length).fill(null);
 
 function loadQuestion() {
@@ -153,4 +166,4 @@ function showResults() {
 nextBtn.addEventListener('click', goToNextQuestion);
 
 // Load the first question
-loadQuestion();
+// loadQuestion();
