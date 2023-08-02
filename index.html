@@ -8,21 +8,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
   <header>
     <h1>Quizzard Wizzard</h1>
     <nav>
       <ol>
-        <li>Home</li>
+        <li>
+          <a href="/index.html">
+            <i class="fas fa-dungeon"></i>
+            <span>HOME</span>
+          </a>
+        </li>
+        <li>
+          <a href="/quizwiz.html">
+            <i class="fas fa-gamepad"></i>
+            <span>PLAY</span>
+          </a>
+        </li>
+        <li>
+          <a href="/results.html">
+            <i class="fas fa-dice-d20"></i>
+            <span>LEADERBOARD</span>
+          </a>
+        </li>
+
         <!-- <li><a href="/quizwiz.html">Play Quiz Wiz</a></li> -->
-        <li><a href="/results.html">View Results</a></li>
       </ol>
     </nav>
   </header>
   
   <main>
-    <h1>Quiz Whiz</h1>
+    <h2>Quiz Whiz</h2>
     <div>
       <form id="get-player-name">
         <fieldset>
@@ -67,8 +85,8 @@
             <input id="game-difficulty" type="text" name="gameDifficulty"
             placeholder="easy"> -->
 
-            <!-- <button type="button" id="start-game-btn">Start Game</button> -->
-            <button type="button" onclick="submitForm()">Start Game</button>
+            <!-- <button type="button" id="start-game-btn">Start Game</button> -->            
+            <button class="idle-button" type="button" onclick="submitForm()">Start Game</button>
           </div>
         </fieldset>
 
