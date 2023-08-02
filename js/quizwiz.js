@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 console.log('quizwiz.js loaded');
@@ -97,54 +98,75 @@ function randomAnswerArray(answers) {
 
 // loads the questions from the data object and displays it using list items
 
-function generateQuestionData(urlToGet) {
 
-  return questionData;
+function fetchQuizData(activePlayer, url) {
+  // GPT helping out with the API pull request
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(questionData => {
+      // We now have questionData Promise resolved, calling the main logic function
+      playQuizWiz(activePlayer, questionData);
+    })
+    .catch(error => {
+      console.error('Error fetching quiz data:', error);
+    });
 }
 
-function playQuizWiz(player, urlToGet) {
+function prepareQuiz(activePlayer, urlToGet) {
+  fetchQuizData(activePlayer, urlToGet); // fires off a function to get async data from an API
+}
 
+function playQuizWiz(player, questionData) {
+
+  // let questionData = fetchQuizData();
+
+  console.log('Paul\'s function works!:');
+  console.log(questionData);
   // let questionData = generateQuestionData(urlToGet);
 
 
-
-console.log(player);
+  // console.log(player);
   
-  console.log('fix this: ' + urlToGet);
+  // console.log('fix this: ' + urlToGet);
   // let questionData = fetchAndReturnQuestionData(urlToGet);
   // questionData.then(askQuestions);
   // const currentQuestionData = questionData.results[currentQuestion];
   // questionTextElement.textContent = currentQuestionData.question;
 
-  optionsElement.innerHTML = '';
-  const options = randomAnswerArray(currentQuestionData);
+  // optionsElement.innerHTML = '';
+  // const options = randomAnswerArray(currentQuestionData);
 
-  for (let i = 0; i < NUMBER_ANSWER_OPTION; i++) {
-    const option = options[i];
+  // for (let i = 0; i < NUMBER_ANSWER_OPTION; i++) {
+  //   const option = options[i];
 
-    const li = document.createElement('li');
-    const input = document.createElement('input');
-    input.type = 'radio';
-    input.name = 'option';
-    input.value = option;
-    input.id = `option${i}`;
-    input.checked = selectedAnswers[currentQuestion] === option;
-    input.addEventListener('change', function () {
-      if (input.checked) {
-        selectedAnswers[currentQuestion] = option;
-      } else {
-        selectedAnswers[currentQuestion] = null;
-      }
-    });
-    li.appendChild(input);
-    const label = document.createElement('label');
-    label.textContent = option;
-    label.setAttribute('for', `option${i}`);
-    li.appendChild(label);
-    optionsElement.appendChild(li);
-  }
-  nextBtn.textContent =
-    currentQuestion === questionData.results.length - 1 ? 'Submit' : 'Next';
+  //   const li = document.createElement('li');
+  //   const input = document.createElement('input');
+  //   input.type = 'radio';
+  //   input.name = 'option';
+  //   input.value = option;
+  //   input.id = `option${i}`;
+  //   input.checked = selectedAnswers[currentQuestion] === option;
+  //   input.addEventListener('change', function () {
+  //     if (input.checked) {
+  //       selectedAnswers[currentQuestion] = option;
+  //     } else {
+  //       selectedAnswers[currentQuestion] = null;
+  //     }
+  //   });
+  //   li.appendChild(input);
+  //   const label = document.createElement('label');
+  //   label.textContent = option;
+  //   label.setAttribute('for', `option${i}`);
+  //   li.appendChild(label);
+  //   optionsElement.appendChild(li);
+  // }
+  // nextBtn.textContent =
+  //   currentQuestion === questionData.results.length - 1 ? 'Submit' : 'Next';
 }
 
 // checks the players answers with the actual answers and iterates the score and questions ask counter accordingly
