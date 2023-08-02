@@ -20,20 +20,19 @@ h1 {
   border: dashed blue;
 } */
 
-
 body {
   background-color: rgb(0, 0, 0);
   color: #fff;
   font-family: 'Audiowide', cursive;
   margin: 0;
   padding: 0;
+  cursor: url('/proj/img/opal.png'), auto;
 }
   
-
 header {
   height: 120px;
   padding: 10px;
-
+  cursor: url('/proj/img/opal.png'), auto;
 }
 
 h1 {
@@ -68,13 +67,13 @@ ol {
 
 ol li {
   list-style: none;
-  /* margin: 0 15px; */
-  margin: 0 10px;
-  padding: 5px 10px;
+  margin: 0 15px;
+  /* margin: 0 10px; */
+  /* padding: 5px 10px; */
   /* background-color: #4CAF50; */
   border: none;
   color: #fff;
-  cursor: pointer;
+  cursor: url('/proj/img/opal-pointer.png'), auto;
   border-radius: 5px;
 }
 
@@ -133,6 +132,7 @@ ol li a:hover {
   color: #1b8b2b;
   box-shadow: 0 0 10px #1b8b2b;
   text-shadow: 0 0 10px #ffee10;
+  cursor: url('/proj/img/opal-pointer.png'), auto;
 }
 
 main {
@@ -173,13 +173,14 @@ form {
   padding: 20px;
   border-radius: 10px;
 	background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92,71,255,0) 50%, rgba(92,71,255,0) 100%);
+  cursor: url('/proj/img/opal.png'), auto;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  
+  cursor: url('/proj/img/opal.png'), auto;
 }
 
 input,
@@ -193,6 +194,8 @@ select {
   color: #fff;
   font-family: 'Audiowide', cursive;
   text-align: center;
+  cursor: url('/proj/img/opal.png'), auto;
+
 }
 
 #player-name {
@@ -222,12 +225,64 @@ input[type="text"] {
   font-family: 'Audiowide', cursive;
 }
 
+.quiz-container {
+  width: 50%;
+  height: 100%;
+  margin: 50px auto;
+  /* display: inline-block; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+	background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92,71,255,0) 50%, rgba(92,71,255,0) 100%);
+}
+
+.question {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+#question-text {
+  margin: 0;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin: 0;
+}
+
+.navigation {
+  width: 50px;
+}
+
+button#nextBtn {
+  /* padding: 5px 10px; */
+  background-color: rgb(76, 175, 80);
+  border: none;
+  color: #fff;
+  cursor: url('/proj/img/opal-pointer.png'), auto;
+  border-radius: 8px;
+  transition: color 0.5s;
+  font-family: 'Audiowide', cursive;
+  margin-top: 10px;
+  animation: idleButtonAnimation 2s infinite;
+}
+
 button.idle-button {
   padding: 5px 10px;
   background-color: rgb(76, 175, 80);
   border: none;
   color: #fff;
-  cursor: pointer;
+  cursor: url('/proj/img/opal-pointer.png'), auto;
   font-weight: bold;
   border-radius: 10px;
   transition: color 0.5s;
@@ -239,6 +294,10 @@ button.idle-button {
 }
 
 button:hover {
+  background-color: #011;
+}
+
+#nextBtn:hover {
   background-color: #011;
 }
 
