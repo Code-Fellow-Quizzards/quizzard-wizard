@@ -64,6 +64,7 @@ function playQuizWiz(player, data) {
 
 const NUMBER_ANSWER_OPTION = 4;
 
+// Randomizes the location of the correct answers inside an array with the incorrect answers
 function randomAnswerArray(answers) {
   const answerArray = [];
   let randomIndex = Math.floor(Math.random() * NUMBER_ANSWER_OPTION);
@@ -89,6 +90,7 @@ const nextBtn = document.getElementById('nextBtn');
 // const selectedAnswers = [];
 const selectedAnswers = new Array(questionData.results.length).fill(null);
 
+// loads the questions from the data object and displays it using list items
 function loadQuestion() {
   const currentQuestionData = questionData.results[currentQuestion];
   questionTextElement.textContent = currentQuestionData.question;
@@ -123,6 +125,7 @@ function loadQuestion() {
     currentQuestion === questionData.results.length - 1 ? 'Submit' : 'Next';
 }
 
+// checks the players answers with the actual answers and iterates the score and questions ask counter accordingly
 function evaluateAnswer(userAnswer, actualAnswer) {
   if (userAnswer === actualAnswer) {
     player.currentCorrectAnswers++;
@@ -132,6 +135,7 @@ function evaluateAnswer(userAnswer, actualAnswer) {
   }
 }
 
+// this is a callback function for the next button event listener.
 function goToNextQuestion() {
   if (currentQuestion < questionData.results.length - 1) {
     currentQuestion++;
@@ -147,6 +151,7 @@ function goToNextQuestion() {
   }
 }
 
+// NEEDS to be updates - displays players answers along with correct answers
 function showResults() {
   // Display the user's selected answers (you can customize the output as per your requirements)
   let resultsHTML = '<h2>Results</h2>';
