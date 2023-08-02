@@ -61,13 +61,17 @@ function prepareQuiz(activePlayer, urlToGet) {
 function playQuizWiz(player, questionData) {
   questionPool = questionData;
   playerPool = player;
-  console.log("Paul's function works!:");
-  console.log(questionData.results);
+  // console.log("Paul's function works!:");
+  // console.log(questionData.results);
   console.log(player);
-  console.log('hi' + questionPool);
-  // let questionData = fetchAndReturnQuestionData(urlToGet);
-  // questionData.then(askQuestions);
-  const currentQuestionData = questionData.results[currentQuestion];
+  playerPool.currentCorrectAnswers = 0;
+  playerPool.currentNumberAskedQuestions = 0;
+  // console.log('hi' + questionPool);
+  loadQuestion();
+}
+
+function loadQuestion() {
+  const currentQuestionData = questionPool.results[currentQuestion];
   questionTextElement.textContent = currentQuestionData.question;
 
   optionsElement.innerHTML = '';
@@ -98,16 +102,19 @@ function playQuizWiz(player, questionData) {
     optionsElement.appendChild(li);
   }
   nextBtn.textContent =
-    currentQuestion === questionData.results.length - 1 ? 'Submit' : 'Next';
+    currentQuestion === questionPool.results.length - 1 ? 'Submit' : 'Next';
 }
 
 // checks the players answers with the actual answers and iterates the score and questions ask counter accordingly
 function evaluateAnswer(userAnswer, actualAnswer) {
+  playerPool.currentNumberAskedQuestions++;
+  playerPool.totalNumberAskedQuestions++;
   if (userAnswer === actualAnswer) {
     playerPool.currentCorrectAnswers++;
-    playerPool.currentNumberAskedQuestions++;
+    playerPool.totalNumberCorrectAnswers++;
+    playerPool.savePlayer();
   } else {
-    playerPool.currentNumberAskedQuestions++;
+    playerPool.savePlayer();
   }
 }
 
@@ -119,8 +126,8 @@ function goToNextQuestion() {
       selectedAnswers[currentQuestion - 1],
       questionPool.results[currentQuestion - 1].correct_answer
     );
-    // console.log(player);
-    playQuizWiz(playerPool, questionPool);
+    console.log(playerPool);
+    loadQuestion();
   } else {
     currentQuestion++;
     evaluateAnswer(
