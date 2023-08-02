@@ -127,10 +127,7 @@ function playQuizWiz(player, questionData) {
 
   console.log('Paul\'s function works!:');
   console.log(questionData);
-  // let questionData = generateQuestionData(urlToGet);
-
-
-  // console.log(player);
+  console.log(player);
   
   // console.log('fix this: ' + urlToGet);
   // let questionData = fetchAndReturnQuestionData(urlToGet);

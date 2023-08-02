@@ -90,52 +90,52 @@ let urlToGet = 'https://opentdb.com/api.php?amount=10&category=20&difficulty=eas
 // let urlToGet = '';
 ////////////////////////////////////////////////////////////////////////////////
 
-function fetchQuizData(url) {
-  // GPT helping out with the API pull request
+// function fetchQuizData(url) {
+//   // GPT helping out with the API pull request
 
-  return fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Use the data here
-      // console.log(data);
-      return(data);
-    })
-    .catch(error => {
-      console.error('Error fetching quiz data:', error);
-    });
-}
+//   return fetch(url)
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return response.json();
+//     })
+//     .then(data => {
+//       // Use the data here
+//       // console.log(data);
+//       return(data);
+//     })
+//     .catch(error => {
+//       console.error('Error fetching quiz data:', error);
+//     });
+// }
 
-function fetchAndReturnQuestionData(urlToGet) {
-  return fetchQuizData(urlToGet)
-    .then(quizData => {
-      if (quizData.response_code === 0) {
-        return quizData.results;
-      } else {
-        console.log('There was an error collecting questions: ' + quizData.response_code);
-      }
-    });
-}
+// function fetchAndReturnQuestionData(urlToGet) {
+//   return fetchQuizData(urlToGet)
+//     .then(quizData => {
+//       if (quizData.response_code === 0) {
+//         return quizData.results;
+//       } else {
+//         console.log('There was an error collecting questions: ' + quizData.response_code);
+//       }
+//     });
+// }
 
-function askQuestions(questionPool) {
-  console.log('This is where your question function can go. All questions are in questionPool');
-  console.log(questionPool);
-}
+// function askQuestions(questionPool) {
+//   console.log('This is where your question function can go. All questions are in questionPool');
+//   console.log(questionPool);
+// }
 
 
-function playQuiz(activePlayer) {
-  console.log('We\'re now playing with: ' + activePlayer.name);
-  // for loop (10 iteration) {
-  //   questionArray = returnAnswerArray();
-  //   askQuestion[i];
-  //   gameLogic();
-  //   activePlayer.savePlayer();
-  // }
-}
+// function playQuiz(activePlayer) {
+//   console.log('We\'re now playing with: ' + activePlayer.name);
+//   // for loop (10 iteration) {
+//   //   questionArray = returnAnswerArray();
+//   //   askQuestion[i];
+//   //   gameLogic();
+//   //   activePlayer.savePlayer();
+//   // }
+// }
     
 function submitForm() {
   const playerNameInput = document.getElementById('player-name');
@@ -157,11 +157,13 @@ function submitForm() {
       let activePlayer = new Player(playerName);
       activePlayer.highScore = 99;
       activePlayer.savePlayer();
+      // cal load function here => invoke questions
     } else {
+      // cal load function here => invoke questions
       console.log('need to load a player obj');
       let activePlayer = loadPlayer(playerName);
-      let questionPool = fetchAndReturnQuestionData();
-      questionPool.then(askQuestions);
+      // let questionPool = fetchAndReturnQuestionData();
+      // questionPool.then(askQuestions);
 
       // console.log(activePlayer);
       
