@@ -28,7 +28,7 @@ body {
   padding: 0;
   cursor: url('/proj/img/opal.png'), auto;
 }
-  
+
 header {
   height: 120px;
   padding: 10px;
@@ -43,13 +43,15 @@ h1 {
   margin-bottom: 5px;
 }
 
-
 @keyframes neon1 {
   from {
-    text-shadow: 0 0 10px #064011, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #4CAF50, 0 0 70px #4CAF50, 0 0 70px #4CAF50, 0 0 100px #4CAF50, 0 0 100px #4CAF50;
+    text-shadow: 0 0 10px #064011, 0 0 20px #fff, 0 0 30px #fff,
+      0 0 40px #4caf50, 0 0 70px #4caf50, 0 0 70px #4caf50, 0 0 100px #4caf50,
+      0 0 100px #4caf50;
   }
   to {
-    text-shadow: 0 0 5px #064011, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #05230a, 0 0 35px #05230a, 0 0 40px #05230a, 0 0 50px #05230a, 0 0 75px #05230a;
+    text-shadow: 0 0 5px #064011, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #05230a,
+      0 0 35px #05230a, 0 0 40px #05230a, 0 0 50px #05230a, 0 0 75px #05230a;
   }
 }
 
@@ -78,7 +80,7 @@ ol li {
 }
 
 ol li a {
-  position: relative; 
+  position: relative;
   display: block;
   width: 60px;
   height: 40px;
@@ -88,7 +90,7 @@ ol li a {
   border-radius: 50%;
   font-size: 20px;
   color: #073910;
-  transition: .5s;
+  transition: 0.5s;
   text-decoration: none;
   color: #fff;
 }
@@ -118,8 +120,8 @@ ol li a::before {
   height: 100%;
   border-radius: 50%;
   background: #1b8b2b;
-  transition: .10s;
-  transform: scale(.9);
+  transition: 0.1s;
+  transform: scale(0.9);
   z-index: -1;
 }
 
@@ -140,7 +142,6 @@ main {
   padding: 20px;
 }
 
-
 h2 {
   margin: 0;
 }
@@ -151,7 +152,12 @@ h2 {
   background-color: #333;
   padding: 20px;
   border-radius: 10px;
-  background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92,71,255,0) 50%, rgba(92,71,255,0) 100%);
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(67, 140, 59) 1%,
+    rgba(92, 71, 255, 0) 50%,
+    rgba(92, 71, 255, 0) 100%
+  );
 }
 
 #leaderboard-table th,
@@ -172,7 +178,12 @@ form {
   background-color: #333;
   padding: 20px;
   border-radius: 10px;
-	background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92,71,255,0) 50%, rgba(92,71,255,0) 100%);
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(67, 140, 59) 1%,
+    rgba(92, 71, 255, 0) 50%,
+    rgba(92, 71, 255, 0) 100%
+  );
   cursor: url('/proj/img/opal.png'), auto;
 }
 
@@ -195,14 +206,13 @@ select {
   font-family: 'Audiowide', cursive;
   text-align: center;
   cursor: url('/proj/img/opal-pointer.png'), auto;
-
 }
 
 #player-name {
   width: 100%;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   margin: 0;
 }
 
@@ -221,7 +231,7 @@ label p {
   width: 20px;
 }
 
-input[type="text"] {
+input[type='text'] {
   font-family: 'Audiowide', cursive;
 }
 
@@ -238,7 +248,12 @@ input[type="text"] {
   padding: 20px;
   box-sizing: border-box;
   border-radius: 10px;
-	background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92,71,255,0) 50%, rgba(92,71,255,0) 100%);
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(67, 140, 59) 1%,
+    rgba(92, 71, 255, 0) 50%,
+    rgba(92, 71, 255, 0) 100%
+  );
 }
 
 .question {
@@ -260,11 +275,11 @@ input[type="text"] {
   margin: 0;
 }
 
-.navigation {
+#navigation {
   width: 50px;
 }
 
-button#nextBtn {
+button#nextBtn, button#leadBtn, button#playBtn {
   /* padding: 5px 10px; */
   background-color: rgb(76, 175, 80);
   border: none;
@@ -302,8 +317,13 @@ button:hover {
 }
 
 @keyframes idleButtonAnimation {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 footer {
@@ -316,6 +336,10 @@ hr {
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+}
+
+#hideBtn {
+  display: none;
 }

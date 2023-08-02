@@ -150,12 +150,41 @@ function goToNextQuestion() {
 //   document.body.innerHTML = resultsHTML;
 // }
 
+const QUIZ_NAVIGATION = document.getElementById('navigation');
+// const playBtn = document.getElementById('playBtn');
+// const leadBtn = document.getElementById('leadBtn');
+
+
+// Display the user's selected answers (you can customize the output as per your requirements)
 function showResults() {
-  // Display the user's selected answers (you can customize the output as per your requirements)
+  let playAgainButton = document.createElement('button');
+  let leaderboardButton = document.createElement('button');
+  playAgainButton.setAttribute('id', 'playBtn');
+  leaderboardButton.setAttribute('id', 'leadBtn');
   questionTextElement.textContent = `Thanks for playing ${playerPool.name}`;
   optionsElement.innerHTML = `<p>Correct Answers = ${playerPool.currentCorrectAnswers}</p><br /><p>Number of Questions = ${playerPool.currentNumberAskedQuestions}</p><br /><p>Lifetime Correct Answers = ${playerPool.totalNumberCorrectAnswers}</p><br /><p>Lifetime Number of Questions = ${playerPool.totalNumberAskedQuestions}</p><br />`;
+  playAgainButton.textContent = 'Play Again';
+  leaderboardButton.textContent = 'Leaderboard';
+  playAgainButton.addEventListener('click', resetPage);
+  leaderboardButton.addEventListener('click', showLeaderboardPage);
+  hideButton();
+  QUIZ_NAVIGATION.appendChild(playAgainButton);
+  QUIZ_NAVIGATION.appendChild(leaderboardButton);
 }
 
 nextBtn.addEventListener('click', goToNextQuestion);
 
 
+// reloads the current page
+function resetPage() {
+  location.reload();
+}
+
+function showLeaderboardPage() {
+  window.location.href = 'leaderboard.html';
+}
+
+function hideButton() {
+  let hideThisButton = document.getElementById('nextBtn');
+  hideThisButton.parentNode.removeChild(hideThisButton);
+}
