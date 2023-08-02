@@ -30,8 +30,6 @@ let currentQuestion = 0;
 const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
 const nextBtn = document.getElementById('nextBtn');
-// const selectedAnswers = [];
-// // const selectedAnswers = new Array(questionData.results.length).fill(null);
 const selectedAnswers = new Array(10).fill(null);
 
 // loads the questions from the data object and displays it using list items
@@ -61,12 +59,9 @@ function prepareQuiz(activePlayer, urlToGet) {
 function playQuizWiz(player, questionData) {
   questionPool = questionData;
   playerPool = player;
-  // console.log("Paul's function works!:");
-  // console.log(questionData.results);
   console.log(player);
   playerPool.currentCorrectAnswers = 0;
   playerPool.currentNumberAskedQuestions = 0;
-  // console.log('hi' + questionPool);
   loadQuestion();
 }
 
@@ -139,20 +134,28 @@ function goToNextQuestion() {
   }
 }
 
+// function showResults() {
+//   // Display the user's selected answers (you can customize the output as per your requirements)
+//   let resultsHTML = '<h2>Results</h2>';
+//   for (let i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+//     const userAnswer = selectedAnswers[i];
+//     const correctAnswer = questionPool.results[i].correct_answer;
+//     const isCorrect = userAnswer === correctAnswer;
+//     resultsHTML += `<p>Question ${
+//       i + 1
+//     }: Your answer - ${userAnswer}, Correct answer - ${correctAnswer}, ${
+//       isCorrect ? 'Correct' : 'Incorrect'
+//     }</p>`;
+//   }
+//   document.body.innerHTML = resultsHTML;
+// }
+
 function showResults() {
   // Display the user's selected answers (you can customize the output as per your requirements)
-  let resultsHTML = '<h2>Results</h2>';
-  for (let i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-    const userAnswer = selectedAnswers[i];
-    const correctAnswer = questionPool.results[i].correct_answer;
-    const isCorrect = userAnswer === correctAnswer;
-    resultsHTML += `<p>Question ${
-      i + 1
-    }: Your answer - ${userAnswer}, Correct answer - ${correctAnswer}, ${
-      isCorrect ? 'Correct' : 'Incorrect'
-    }</p>`;
-  }
-  document.body.innerHTML = resultsHTML;
+  questionTextElement.textContent = `Thanks for playing ${playerPool.name}`;
+  optionsElement.innerHTML = `<p>Correct Answers = ${playerPool.currentCorrectAnswers}</p><br /><p>Number of Questions = ${playerPool.currentNumberAskedQuestions}</p><br /><p>Lifetime Correct Answers = ${playerPool.totalNumberCorrectAnswers}</p><br /><p>Lifetime Number of Questions = ${playerPool.totalNumberAskedQuestions}</p><br />`;
 }
 
 nextBtn.addEventListener('click', goToNextQuestion);
+
+
