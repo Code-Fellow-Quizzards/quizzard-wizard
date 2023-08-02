@@ -6,6 +6,7 @@ console.log('app.js loaded');
 const EASY_DIFFICULTY = 1;
 const MEDIUM_DIFFICULTY = 2;
 const HIGH_DIFFICULTY = 3;
+let NUMBER_OF_QUESTIONS = 0;
 
 function Player(playerName) {
   this.name = playerName;
@@ -117,7 +118,10 @@ function submitForm() {
   const gameCategoryInput = document.getElementById('game-category');
   const gameCategory = gameCategoryInput.value.toLowerCase();
   const numberQuestionInput = document.getElementById('number-question');
-  const numberQuestions = numberQuestionInput.value;
+  
+//  const numberQuestions = numberQuestionInput.value;
+  NUMBER_OF_QUESTIONS = numberQuestionInput.value;
+  
   const gameDifficultyInput = document.querySelector('input[name="gameDifficulty"]:checked');
   const gameDifficulty = gameDifficultyInput.value.toLowerCase();
 
@@ -146,7 +150,9 @@ function submitForm() {
     }
 
     console.log('Selected Category', gameCategory);
-    console.log('Number of Questions', numberQuestions);
+  //  console.log('Number of Questions', numberQuestions);
+    console.log('Number of Questions', NUMBER_OF_QUESTIONS);
+    
     console.log('Difficulty Level', gameDifficulty);
 
   } else {
