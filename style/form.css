@@ -14,7 +14,7 @@
     padding: 20px;
     border-radius: 10px;
     background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92, 71, 255, 0) 50%, rgba(92, 71, 255, 0) 100%);
-    cursor: url('./proj/img/opal.png'), auto;
+    cursor: url('../proj/img/opal.png'), auto;
   }
 
   input,
@@ -29,7 +29,7 @@
   color: #fff;
   font-family: 'Audiowide', cursive;
   text-align: center;
-  cursor: url('./proj/img/opal-pointer.png'), auto;
+  cursor: url('../proj/img/opal-pointer.png'), auto;
 }
 
 #player-name {
@@ -42,7 +42,7 @@ label {
     justify-content: center;
     margin-bottom: 5px;
     font-weight: bold;
-    cursor: url('./proj/img/opal.png'), auto;
+    cursor: url('../proj/img/opal.png'), auto;
   }
   
   label p {
@@ -74,7 +74,7 @@ label {
     background-color: rgb(76, 175, 80);
     border: none;
     color: #fff;
-    cursor: url('./proj/img/opal-pointer.png'), auto;
+    cursor: url('../proj/img/opal-pointer.png'), auto;
     font-weight: bold;
     border-radius: 10px;
     transition: color 0.5s;
@@ -99,7 +99,7 @@ label {
     background-color: rgb(76, 175, 80);
     border: none;
     color: #fff;
-    cursor: url('./proj/img/opal-pointer.png'), auto;
+    cursor: url('../proj/img/opal-pointer.png'), auto;
     font-weight: bold;
     border-radius: 10px;
     transition: color 0.5s;
@@ -121,7 +121,7 @@ label {
     background-color: rgb(76, 175, 80);
     border: none;
     color: #fff;
-    cursor: url('./proj/img/opal-pointer.png'), auto;
+    cursor: url('../proj/img/opal-pointer.png'), auto;
     font-weight: bold;
     border-radius: 10px;
     transition: color 0.5s;
