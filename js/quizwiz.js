@@ -126,6 +126,7 @@ function goToNextQuestion() {
         questionPool.results[currentQuestion - 1].correct_answer
       );
       console.log(playerPool);
+      radioSelected = false;
       loadQuestion();
     } else {
       currentQuestion++;
@@ -134,6 +135,7 @@ function goToNextQuestion() {
         questionPool.results[currentQuestion - 1].correct_answer
       );
       // Submit the quiz (you can add your submission logic here)
+      radioSelected = false;
       showResults();
     }
   } else {
