@@ -163,6 +163,7 @@ function showResults() {
   playAgainButton.addEventListener('click', resetPage);
   leaderboardButton.addEventListener('click', showLeaderboardPage);
   hideButton();
+  hideQuestionXofY();
   QUIZ_NAVIGATION.appendChild(playAgainButton);
   QUIZ_NAVIGATION.appendChild(leaderboardButton);
 }
@@ -183,6 +184,11 @@ function showLeaderboardPage() {
 function hideButton() {
   let hideThisButton = document.getElementById('nextBtn');
   hideThisButton.parentNode.removeChild(hideThisButton);
+}
+
+function hideQuestionXofY() {
+  let hideQuestionCounter = document.getElementById('question-x-of-y');
+  hideQuestionCounter.parentNode.removeChild(hideQuestionCounter);
 }
 
 document.getElementById('start-button').addEventListener('click', function () {
