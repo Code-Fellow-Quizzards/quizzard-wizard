@@ -1,20 +1,9 @@
 'use strict';
 
-console.log('results.js loaded');
-
-// let state = new QuizWhiz();
-// let state = loadPlayerData('qqq');
-// let state = loadPlayerData('rrr');
-
-// console.log(state);
-
 function loadleaderboard() {
   const leaderboardBody = document.getElementById('leaderboard-body');
 
-//   leaderboardBody.innerHTML = '';
-
   const players = [];
-  // debugger;
   for (let i = 0; i < localStorage.length; i++) {
     const playerName = localStorage.key(i); //got this from W3 to get the player names from localstorage.
     const playerData = JSON.parse(localStorage.getItem(playerName));

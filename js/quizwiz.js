@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 'use strict';
 
-console.log('quizwiz.js loaded');
-
 const NUMBER_ANSWER_OPTION = 4;
 let questionPool = null;
 let playerPool = null;
