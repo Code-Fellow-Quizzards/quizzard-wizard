@@ -1,6 +1,6 @@
   .guest {
     width: 1400px;
-    height: 45px;
+    height: 40px;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
@@ -95,6 +95,11 @@
 
   .vs-guest {
     background-image: url('/proj/img/vs.png');
+  }
+
+  .house-guest {
+    background-image: url('/proj/img/spaceship.png');
+    background-size: 60px;
   }
   
   @keyframes walk {
@@ -206,4 +211,9 @@
   .guest:nth-child(22) {
     animation-delay: 6.6s;
     /* this is vs */
+  }
+
+  .guest:nth-child(23) {
+    animation: none;
+    /* this is imposter-house */
   }
