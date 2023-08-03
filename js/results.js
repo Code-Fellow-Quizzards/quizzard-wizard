@@ -19,7 +19,6 @@ function loadleaderboard() {
     const row = document.createElement('tr');
 
     let playerAccuracy = Math.floor((player.totalNumberCorrectAnswers / player.totalNumberAskedQuestions) * 100);
-    console.log(player);
     
     row.innerHTML = `
         <td>${rank}</td>

@@ -155,3 +155,7 @@ footer {
 hr {
   border-color: #444;
 }
+
+nav ol li {
+  margin: 0 40px;  
+}

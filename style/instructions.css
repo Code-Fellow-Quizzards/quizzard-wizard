@@ -1,0 +1,11 @@
+div ol {
+  display: block;
+}
+
+div ol li {
+  list-style:decimal;
+}
+
+div ol li i {
+
+}
