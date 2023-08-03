@@ -155,6 +155,8 @@ function startGame() {
     // console.log('Difficulty Level', gameDifficulty);
 
   } else {
-    alert('no playerName');
+    // Sends an alert and then reloads page.
+    alert('No player name detected. Please input a name');
+    location.reload();
   }
 }
