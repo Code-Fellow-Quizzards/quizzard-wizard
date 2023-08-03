@@ -277,6 +277,23 @@ button#nextBtn {
   animation: idleButtonAnimation 2s infinite;
 }
 
+#start-button {
+  padding: 5px 10px;
+  background-color: rgb(76, 175, 80);
+  border: none;
+  color: #fff;
+  cursor: url('/proj/img/opal-pointer.png'), auto;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: color 0.5s;
+  font-family: 'Audiowide', cursive;
+  margin-top: 10px;
+  margin-left: 10px;
+  animation: idleButtonAnimation 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
 button.idle-button {
   padding: 5px 10px;
   background-color: rgb(76, 175, 80);
@@ -293,12 +310,31 @@ button.idle-button {
   position: relative;
   overflow: hidden;
 }
+
+#start-button.idle-button {
+  padding: 5px 10px;
+  background-color: rgb(76, 175, 80);
+  border: none;
+  color: #fff;
+  cursor: url('/proj/img/opal-pointer.png'), auto;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: color 0.5s;
+  font-family: 'Audiowide', cursive;
+  margin-top: 10px;
+  margin-left: 10px;
+  animation: idleButtonAnimation 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+
 button.unavailable-button {
   padding: 5px 10px;
   background-color: rgb(125, 125, 125);
   border: none;
   color: #fff;
-  cursor: url('/proj/img/no-entry.png'), auto;
+  /* cursor: url('/proj/img/no-entry.png'), auto; */
   font-weight: bold;
   border-radius: 10px;
   transition: color 0.5s;
@@ -310,13 +346,41 @@ button.unavailable-button {
   /* cursor: url('/proj/img/opal.png'), auto; */
 
 }
+#start-button.unavailable-button {
+  padding: 5px 10px;
+  background-color: rgb(125, 125, 125);
+  border: none;
+  color: #fff;
+  /* cursor: url('/proj/img/no-entry.png'), auto; */
+  font-weight: bold;
+  border-radius: 10px;
+  transition: color 0.5s;
+  font-family: 'Audiowide', cursive;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: relative;
+  overflow: hidden;
+  /* cursor: url('/proj/img/opal.png'), auto; */
+}
+
+.unavailable-button:hover {
+  background-color: rgb(125, 125, 125);
+}
+
 
 button.unavailable-button:hover {
   background-color: rgb(255, 0, 0);
-
 }
 
-button.idle-button:hover {
+#start-button.unavailable-button:hover {
+  background-color: rgb(125, 125, 125);
+}
+
+#start-button:hover {
+  background-color: #011;
+}
+
+#button.idle-button:hover {
   background-color: #011;
 }
 

@@ -92,9 +92,9 @@ const categoryCodes = {
 
 
 function generateURL(gameCategory, numberQuestions, gameDifficulty) {
+  // This function generates the URL for the API call
 
   let chosenCategory = categoryCodes[gameCategory];
-
 
   let newURL = 'https://opentdb.com/api.php?';
   newURL += 'amount=' + numberQuestions + '&';
@@ -105,12 +105,11 @@ function generateURL(gameCategory, numberQuestions, gameDifficulty) {
   return newURL;
 }
 
-// Nortstar
-// https://opentdb.com/api.php?amount=10&category=20&difficulty=easy&type=multiple
-// Does not work
-// https://opentdb.com/api.php?amount=20&category=mythology&difficulty=medium&type=multiple
-
-////////////////////////////////////////////////////////////////////////////////
+const startButton = document.getElementById('start-button');
+startButton.addEventListener('click', startGame);
+//////////////////////////////////////////////////
+// Add the Event Listener again after we play a round
+//////////////////////////////////////////////////
 
 function startGame() {
   const playerNameInput = document.getElementById('player-name');
@@ -119,7 +118,6 @@ function startGame() {
   const gameCategory = gameCategoryInput.value.toLowerCase();
   const numberQuestionInput = document.getElementById('number-question');
   
-//  const numberQuestions = numberQuestionInput.value;
   NUMBER_OF_QUESTIONS = numberQuestionInput.value;
   
   const gameDifficultyInput = document.querySelector('input[name="gameDifficulty"]:checked');
@@ -135,27 +133,27 @@ function startGame() {
     if (!existingPlayerData) {
       // console.log('need to make a new player obj');
       let activePlayer = new Player(playerName);
-      activePlayer.highScore = 99;
+      // activePlayer.highScore = 99;
       activePlayer.savePlayer();
       // cal load function here => invoke questions
-    } else {
-      // cal load function here => invoke questions
-      console.log('need to load a player obj');
-      let activePlayer = loadPlayer(playerName);
-      console.log('player: ' + activePlayer);
-      console.log('urlToGet: ' + urlToGet);
-
-      prepareQuiz(activePlayer, urlToGet);
-
+    // } else {
+    //   // cal load function here => invoke questions
+    //   console.log('need to load a player obj');
+    //   console.log('player: ' + activePlayer);
+    //   console.log('urlToGet: ' + urlToGet);
     }
-
-    console.log('Selected Category', gameCategory);
-  //  console.log('Number of Questions', numberQuestions);
-    console.log('Number of Questions', NUMBER_OF_QUESTIONS);
+    let activePlayer = loadPlayer(playerName);
+    startButton.innerHTML = 'Game in Progress';
+    startButton.classList.add('unavailable-button');
+    startButton.removeEventListener('click', startGame);
+    prepareQuiz(activePlayer, urlToGet);
     
-    console.log('Difficulty Level', gameDifficulty);
+    // console.log('Selected Category', gameCategory);
+    // console.log('Number of Questions', numberQuestions);
+    // console.log('Number of Questions', NUMBER_OF_QUESTIONS);
+    // console.log('Difficulty Level', gameDifficulty);
 
   } else {
-    console.log('no playerName');
+    alert('no playerName');
   }
 }
