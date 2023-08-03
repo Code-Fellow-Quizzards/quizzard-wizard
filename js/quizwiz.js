@@ -102,7 +102,7 @@ function loadQuestion() {
     optionsElement.appendChild(li);
   }
   nextBtn.innerHTML =
-    currentQuestion === questionData.results.length - 1 ? 'Submit' : 'Next';
+    currentQuestion === questionPool.results.length - 1 ? 'Submit' : 'Next';
 }
 
 // checks the players answers with the actual answers and iterates the score and questions ask counter accordingly
