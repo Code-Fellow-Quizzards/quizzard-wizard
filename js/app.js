@@ -131,17 +131,10 @@ function startGame() {
     let existingPlayerData = localStorage.getItem(playerName);
 
     if (!existingPlayerData) {
-      // console.log('need to make a new player obj');
       let activePlayer = new Player(playerName);
-      // activePlayer.highScore = 99;
       activePlayer.savePlayer();
-      // cal load function here => invoke questions
-    // } else {
-    //   // cal load function here => invoke questions
-    //   console.log('need to load a player obj');
-    //   console.log('player: ' + activePlayer);
-    //   console.log('urlToGet: ' + urlToGet);
     }
+
     let activePlayer = loadPlayer(playerName);
     startButton.innerHTML = 'Game in Progress';
     startButton.classList.add('unavailable-button');
@@ -149,12 +142,8 @@ function startGame() {
     
     prepareQuiz(activePlayer, urlToGet);
     
-    // console.log('Selected Category', gameCategory);
-    // console.log('Number of Questions', numberQuestions);
-    // console.log('Number of Questions', NUMBER_OF_QUESTIONS);
-    // console.log('Difficulty Level', gameDifficulty);
-
   } else {
-    alert('no playerName');
+    alert('No player name detected. Please input a name');
+    location.reload();
   }
 }

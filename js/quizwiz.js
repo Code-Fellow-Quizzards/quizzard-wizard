@@ -31,6 +31,7 @@ const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
 const nextBtn = document.getElementById('nextBtn');
 const selectedAnswers = new Array(10).fill(null);
+let radioSelected = false;
 
 // loads the questions from the data object and displays it using list items
 
@@ -60,11 +61,6 @@ function playQuizWiz(player, questionData) {
   questionPool = questionData;
   playerPool = player;
   console.log(player);
-  // console.log('hi' + questionPool);
-  // let questionData = fetchAndReturnQuestionData(urlToGet);
-  // questionData.then(askQuestions);
-  // const currentQuestionData = questionData.results[currentQuestion];
-  // questionTextElement.innerHTML = currentQuestionData.question;
   playerPool.currentCorrectAnswers = 0;
   playerPool.currentNumberAskedQuestions = 0;
   loadQuestion();
@@ -72,8 +68,8 @@ function playQuizWiz(player, questionData) {
 
 function loadQuestion() {
   const currentQuestionData = questionPool.results[currentQuestion];
-  questionTextElement.textContent = currentQuestionData.question;
-
+  questionTextElement.innerHTML = currentQuestionData.question;
+  
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
 
@@ -90,8 +86,10 @@ function loadQuestion() {
     input.addEventListener('change', function () {
       if (input.checked) {
         selectedAnswers[currentQuestion] = option;
+        radioSelected = true; // sets radioSelected to true if player picks an answer
       } else {
         selectedAnswers[currentQuestion] = null;
+        radioSelected = false; // keeps radioSelected as false if player doesn't pick an answer
       }
     });
     li.appendChild(input);
@@ -120,45 +118,30 @@ function evaluateAnswer(userAnswer, actualAnswer) {
 
 // this is a callback function for the next button event listener.
 function goToNextQuestion() {
-  if (currentQuestion < NUMBER_OF_QUESTIONS - 1) {
-    currentQuestion++;
-    evaluateAnswer(
-      selectedAnswers[currentQuestion - 1],
-      questionPool.results[currentQuestion - 1].correct_answer
-    );
-    console.log(playerPool);
-    loadQuestion();
+  if (radioSelected) {
+    if (currentQuestion < NUMBER_OF_QUESTIONS - 1) {
+      currentQuestion++;
+      evaluateAnswer(
+        selectedAnswers[currentQuestion - 1],
+        questionPool.results[currentQuestion - 1].correct_answer
+      );
+      console.log(playerPool);
+      loadQuestion();
+    } else {
+      currentQuestion++;
+      evaluateAnswer(
+        selectedAnswers[currentQuestion - 1],
+        questionPool.results[currentQuestion - 1].correct_answer
+      );
+      // Submit the quiz (you can add your submission logic here)
+      showResults();
+    }
   } else {
-    currentQuestion++;
-    evaluateAnswer(
-      selectedAnswers[currentQuestion - 1],
-      questionPool.results[currentQuestion - 1].correct_answer
-    );
-    // Submit the quiz (you can add your submission logic here)
-    showResults();
+    alert('Please select an answer before proceeding.');
   }
 }
 
-// function showResults() {
-//   // Display the user's selected answers (you can customize the output as per your requirements)
-//   let resultsHTML = '<h2>Results</h2>';
-//   for (let i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-//     const userAnswer = selectedAnswers[i];
-//     const correctAnswer = questionPool.results[i].correct_answer;
-//     const isCorrect = userAnswer === correctAnswer;
-//     resultsHTML += `<p>Question ${
-//       i + 1
-//     }: Your answer - ${userAnswer}, Correct answer - ${correctAnswer}, ${
-//       isCorrect ? 'Correct' : 'Incorrect'
-//     }</p>`;
-//   }
-//   document.body.innerHTML = resultsHTML;
-// }
-
 const QUIZ_NAVIGATION = document.getElementById('navigation');
-// const playBtn = document.getElementById('playBtn');
-// const leadBtn = document.getElementById('leadBtn');
-
 
 // Display the user's selected answers (you can customize the output as per your requirements)
 function showResults() {
@@ -175,7 +158,6 @@ function showResults() {
   playAgainButton.addEventListener('click', resetPage);
   leaderboardButton.addEventListener('click', showLeaderboardPage);
   hideButton();
-  // QUIZ_NAVIGATION.setAttribute('class', 'navigation-styling');
   QUIZ_NAVIGATION.appendChild(playAgainButton);
   QUIZ_NAVIGATION.appendChild(leaderboardButton);
 }
@@ -197,7 +179,6 @@ function hideButton() {
 }
 
 document.getElementById('start-button').addEventListener('click', function () {
-
   document.getElementById('formContainer').style.display = 'none';
 
   document.getElementById('quizContainer').style.display = 'block';
