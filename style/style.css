@@ -19,7 +19,7 @@ header {
 h1 {
   animation: neon1 2.5s ease-in-out infinite alternate;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 20px;
   font-size: 36px;
   margin-bottom: 5px;
 }
@@ -39,6 +39,8 @@ h1 {
 /* Navigation styles */
 nav {
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 ol {
@@ -51,7 +53,7 @@ ol {
 
 ol li {
   list-style: none;
-  margin: 0 15px;
+  margin: 0 20px;
   border: none;
   color: #fff;
   cursor: url('/proj/img/opal-pointer.png'), auto;
@@ -122,12 +124,13 @@ main {
   justify-content: center;
   align-items: center;
   /* height: 100vh; */
+  margin-top: 30px;
 }
 
 h2 {
-  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
-
 
 /* ------who's button is this?----- */
 /* .button-container {
@@ -138,7 +141,6 @@ h2 {
   margin-top: 10px;
 } */
 /* ------who's button is this?----- */
-
 
 span {
   font-size: 10px;
