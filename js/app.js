@@ -161,5 +161,6 @@ const playAgainUserName = localStorage.getItem('quizwiz');
 if (playAgainUserName) {
   const playerTextBox = document.getElementById('player-name');
   playerTextBox.value = playAgainUserName;
+  localStorage.removeItem('quizwiz');
 }
 

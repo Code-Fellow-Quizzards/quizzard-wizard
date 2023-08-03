@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Whiz Results</title>
   <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/quiz.css">
-  <link rel="stylesheet" href="style/form.css">
-  <link rel="stylesheet" href="style/leaderboard.css">
+  <link rel="stylesheet" href="style/instructions.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
@@ -15,7 +13,7 @@
 </head>
 <body>
   <header>
-    <h1>LEADERBOARD</h1>
+    <h1>INSTRUCTIONS</h1>
     <nav>
       <ol>
         <li>
@@ -39,22 +37,22 @@
       </ol>
     </nav>
   </header>
-  <main class="leaderboard-main">
-      <h2>Top 20 Players</h2>
-      <p>(sorted by Score)</p>
-      <div class="leaderboard-container">
-        <table id="leaderboard-table">
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Name</th>
-              <th>Accuracy</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody id="leaderboard-body"></tbody>
-        </table>
-      </div>
+  <main>
+    <div>
+      <p>Instructions:</p>
+      <ol>
+        <li>Enter your name and choose a category you want to be quizzed on.</li>
+        <li>Click on the “Start Game” button to begin the quiz.</li>
+        <li>You will be presented with a question and four answer options.</li>
+        <li>Select the answer you believe is correct by clicking on it.</li>
+        <li>If your answer is correct, you will score a point.</li>
+        <li>The game will continue until you have answered all the questions in the category.</li>
+        <li>At the end of the quiz, you will see your final score and other stats.</li>
+        <li>Have a look at the Leader Board to see how you’re doing.</li>
+        <li>Try to get the best accuracy score and become the quiz master!</li>
+      </ol>
+      <p>Are you ready to test your knowledge? Let’s start the game and see how well you do! Good luck!</p>
+    </div>
   </main>
   
   <script src="js/app.js"></script>
