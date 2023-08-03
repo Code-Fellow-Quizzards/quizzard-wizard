@@ -110,6 +110,7 @@ function evaluateAnswer(userAnswer, actualAnswer) {
   if (userAnswer === actualAnswer) {
     playerPool.currentCorrectAnswers++;
     playerPool.totalNumberCorrectAnswers++;
+    playerPool.highScore += playerPool.difficultyLevel;
     playerPool.savePlayer();
   } else {
     playerPool.savePlayer();
@@ -168,6 +169,8 @@ nextBtn.addEventListener('click', goToNextQuestion);
 
 // reloads the current page
 function resetPage() {
+  // save player to local variable, we'll check if it exists before we play every game. if it exists, we'll delete it after we start the game
+  localStorage.setItem('quizwiz', playerPool.name);
   location.reload();
 }
 

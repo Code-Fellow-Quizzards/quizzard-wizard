@@ -14,7 +14,8 @@ function loadleaderboard() {
 //   leaderboardBody.innerHTML = '';
 
   const players = [];
-  for (let i = 0; i<localStorage.length; i++) {
+  // debugger;
+  for (let i = 0; i < localStorage.length; i++) {
     const playerName = localStorage.key(i); //got this from W3 to get the player names from localstorage.
     const playerData = JSON.parse(localStorage.getItem(playerName));
     players.push(playerData);
@@ -22,14 +23,19 @@ function loadleaderboard() {
 
   players.sort((a, b) => b.highScore - a.highScore);
 
-  const topTwenty = Math.min(players.length, 20); //i asked gtp to help me show only top 20.
+  const topTwenty = Math.min(players.length, 20); //i asked gpt to help me show only top 20.
 
   for (let rank = 1; rank <= topTwenty; rank++) {
     const player = players[rank-1];
     const row = document.createElement('tr');
+
+    let playerAccuracy = Math.floor((player.totalNumberCorrectAnswers / player.totalNumberAskedQuestions) * 100);
+    console.log(player);
+    
     row.innerHTML = `
         <td>${rank}</td>
         <td>${player.name}</td>
+        <td>${playerAccuracy}%</td>
         <td>${player.highScore}</td>
        `;
     leaderboardBody.appendChild(row);
