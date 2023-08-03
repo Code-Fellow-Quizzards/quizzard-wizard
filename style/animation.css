@@ -1,0 +1,209 @@
+  .guest {
+    width: 1400px;
+    height: 45px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 150px;
+    left: 10px;
+    animation: walk 7s linear infinite;
+  }
+  
+  .green-guest {
+    background-image: url('/proj/img/green-imposter.png');
+  }
+
+  /* .alejandra-guest {
+    background-image: url('/proj/class/alejandra.png');
+  } */
+  
+  .yellow-guest {
+    background-image: url('/proj/img/yellow-imposter.png');
+  }
+
+  /* .anthony-guest {
+    background-image: url('/proj/class/anthony.png');
+  } */
+
+  .knife-guest {
+      background-image: url('/proj/img/knife-imposter.png');
+  }
+  
+  /* .chester-guest {
+      background-image: url('/proj/class/chester.png');
+    } */
+
+  .wizard-guest {
+      background-image: url('/proj/img/wizard-imposter.png');
+  }
+
+  /* .david-guest {
+    background-image: url('/proj/class/david.png');
+  } */
+
+  .charmander-guest {
+    background-image: url('/proj/img/charmander-imposter.png');
+  }
+
+  /* .john-guest {
+    background-image: url('/proj/class/john.png');
+  } */
+
+  .angel-guest {
+    background-image: url('/proj/img/angel-imposter.png');
+  }
+
+  /* .josh-guest {
+    background-image: url('/proj/class/josh.png');
+  } */
+
+  .king-guest {
+    background-image: url('/proj/img/king-imposter.png');
+  }
+
+  /* .kat-guest {
+    background-image: url('/proj/class/kat.png');
+  } */
+
+  .pikachu-guest {
+    background-image: url('/proj/img/pikachu-imposter.png');
+  }
+
+  /* .paul-guest {
+    background-image: url('/proj/class/paul.png');
+  } */
+
+  .pumpkin-guest {
+    background-image: url('/proj/img/pumpkin-imposter.png');
+  }
+
+  /* .samaad-guest {
+    background-image: url('/proj/class/samaad.png');
+  } */
+
+  .crazyred-guest {
+    background-image: url('/proj/img/crazyred-imposter.png');
+  }
+
+  /* .sydney-guest {
+    background-image: url('/proj/class/sydney.png');
+  } */
+
+  .purple-guest {
+    background-image: url('/proj/img/purple-imposter.png');
+  }
+
+  .vs-guest {
+    background-image: url('/proj/img/vs.png');
+  }
+  
+  @keyframes walk {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(160% - 1000px)); }
+  }
+
+/* delay the animation start for alternate guests */
+  .guest:nth-child(2) {
+    animation-delay: 0.3s;
+        /* this is alejandra */
+  }
+  
+  .guest:nth-child(3) {
+    animation-delay: 0.6s; 
+        /* this is yellow */
+  }
+  
+  .guest:nth-child(4) {
+    animation-delay: 0.9s;
+        /* this is anthony */
+  }
+
+  .guest:nth-child(5) {
+    animation-delay: 1.2s;
+        /* this is knife */
+  }
+
+  .guest:nth-child(6) {
+    animation-delay: 1.5s;
+        /* this is chester */
+  }
+
+  .guest:nth-child(7) {
+    animation-delay: 1.8s;
+        /* this is wizard */
+  }
+
+  .guest:nth-child(8) {
+    animation-delay: 2.1s;
+        /* this is david */
+  }
+
+  .guest:nth-child(9) {
+    animation-delay: 2.5s;
+        /* this is charmander */
+  }
+  
+  .guest:nth-child(10) {
+    animation-delay: 2.8s;
+        /* this is john */
+  }
+
+  .guest:nth-child(11) { 
+    animation-delay: 3.1s;
+    /* this is angel */
+  }
+
+  .guest:nth-child(12) {
+    animation-delay: 3.3s;
+        /* this is josh */
+  }
+
+  .guest:nth-child(13) {
+    animation-delay: 3.7s;
+        /* this is king */
+  }
+
+  .guest:nth-child(14) {
+    animation-delay: 4.0s;
+        /* this is kat */
+  }
+
+  .guest:nth-child(15) {
+    animation-delay: 4.3s;
+        /* this is pikachu */
+  }
+
+  .guest:nth-child(16) {
+    animation-delay: 4.6s;
+        /* this is paul */
+  }
+
+  .guest:nth-child(17) {
+    animation-delay: 4.8s;
+        /* this is pumpkin */
+  }
+
+  .guest:nth-child(18) {
+    animation-delay: 5.2s;
+        /* this is samaad */
+  }
+
+  .guest:nth-child(19) {
+    animation-delay: 5.6s;
+        /* this is crazyred */
+  }
+
+  .guest:nth-child(20) {
+    animation-delay: 5.9s;
+        /* this is sydney */
+  }
+
+  .guest:nth-child(21) {
+    animation-delay: 6.3s;
+        /* this is purple */
+  }
+
+  .guest:nth-child(22) {
+    animation-delay: 6.6s;
+    /* this is vs */
+  }

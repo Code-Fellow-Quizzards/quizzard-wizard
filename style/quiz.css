@@ -39,6 +39,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   .gameInProgress span {
@@ -84,7 +85,7 @@
   #options li:hover {
     background-color: #4CAF50;
     border-radius: 10px;
-    padding: 5px;
+    /* padding: 2px; */
     cursor: url('/proj/img/opal-pointer.png'), auto;
   }
 
