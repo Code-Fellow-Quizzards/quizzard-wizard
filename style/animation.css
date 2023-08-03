@@ -1,0 +1,100 @@
+  .guest {
+    width: 1400px;
+    height: 45px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 150px;
+    left: 10px;
+    animation: walk 7s linear infinite;
+  }
+  
+  .green-guest {
+    background-image: url('/proj/img/green-imposter.png');
+  }
+  
+  .yellow-guest {
+    background-image: url('/proj/img/yellow-imposter.png');
+  }
+
+  .wizard-guest {
+    background-image: url('/proj/img/wizard-imposter.png');
+  }
+
+  .charmander-guest {
+    background-image: url('/proj/img/charmander-imposter.png');
+  }
+
+  .angel-guest {
+    background-image: url('/proj/img/angel-imposter.png');
+  }
+
+  .king-guest {
+    background-image: url('/proj/img/king-imposter.png');
+  }
+
+  .pikachu-guest {
+    background-image: url('/proj/img/pikachu-imposter.png');
+  }
+
+  .pumpkin-guest {
+    background-image: url('/proj/img/pumpkin-imposter.png');
+  }
+
+  .crazyred-guest {
+    background-image: url('/proj/img/crazyred-imposter.png');
+  }
+
+  .vs-guest {
+    background-image: url('/proj/img/vs.png');
+  }
+  
+  @keyframes walk {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(160% - 1000px)); }
+  }
+  
+  .guest:nth-child(2) {
+    animation-delay: 0.7s; /* delay the animation start for alternate guests */
+        /* this is yellow */
+  }
+  
+  .guest:nth-child(3) {
+    animation-delay: 1.4s;
+        /* this is wizard */
+  }
+
+  .guest:nth-child(4) {
+    animation-delay: 2.2s;
+        /* this is charmander */
+  }
+
+  .guest:nth-child(5) { 
+    animation-delay: 3.0s;
+    /* this is angel */
+  }
+
+  .guest:nth-child(6) {
+    animation-delay: 3.8s;
+        /* this is king */
+  }
+
+  .guest:nth-child(7) {
+    animation-delay: 4.6s;
+        /* this is pikachu */
+  }
+
+  .guest:nth-child(8) {
+    animation-delay: 5.3s;
+        /* this is pumpkin */
+  }
+
+  .guest:nth-child(9) {
+    animation-delay: 6.1s;
+        /* this is crazyred */
+  }
+
+  .guest:nth-child(10) {
+    animation-delay: 6.5s;
+    /* this is vs */
+  }
