@@ -60,13 +60,11 @@ function playQuizWiz(player, questionData) {
   questionPool = questionData;
   playerPool = player;
   console.log(player);
-// <<<<<<< day3.encodingAndSaveLoadLogic
-//   console.log('hi' + questionPool);
-//   // let questionData = fetchAndReturnQuestionData(urlToGet);
-//   // questionData.then(askQuestions);
-//   const currentQuestionData = questionData.results[currentQuestion];
-//   questionTextElement.innerHTML = currentQuestionData.question;
-// =======
+  // console.log('hi' + questionPool);
+  // let questionData = fetchAndReturnQuestionData(urlToGet);
+  // questionData.then(askQuestions);
+  // const currentQuestionData = questionData.results[currentQuestion];
+  // questionTextElement.innerHTML = currentQuestionData.question;
   playerPool.currentCorrectAnswers = 0;
   playerPool.currentNumberAskedQuestions = 0;
   loadQuestion();
