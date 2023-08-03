@@ -25,6 +25,7 @@ function randomAnswerArray(answers) {
 }
 
 let currentQuestion = 0;
+const questionXofY = document.getElementById('question-x-of-y');
 const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
 const nextBtn = document.getElementById('nextBtn');
@@ -66,8 +67,11 @@ function playQuizWiz(player, questionData) {
 
 function loadQuestion() {
   const currentQuestionData = questionPool.results[currentQuestion];
+  questionXofY.innerHTML = `Question #${currentQuestion + 1} of ${
+    questionPool.results.length
+  }`;
   questionTextElement.innerHTML = currentQuestionData.question;
-  
+
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
 

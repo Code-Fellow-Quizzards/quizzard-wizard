@@ -159,3 +159,7 @@ hr {
 nav ol li {
   margin: 0 40px;  
 }
+
+#question-x-of-y {
+  margin-bottom: 16px;
+}
