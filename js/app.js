@@ -146,6 +146,7 @@ function startGame() {
     startButton.innerHTML = 'Game in Progress';
     startButton.classList.add('unavailable-button');
     startButton.removeEventListener('click', startGame);
+    
     prepareQuiz(activePlayer, urlToGet);
     
     // console.log('Selected Category', gameCategory);
