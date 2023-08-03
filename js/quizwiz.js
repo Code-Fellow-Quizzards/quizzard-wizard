@@ -196,15 +196,9 @@ function hideButton() {
   hideThisButton.parentNode.removeChild(hideThisButton);
 }
 
-function startQuiz() {
-  const formContainer = document.getElementById('formContainer');
-  const quizContainer = document.getElementById('quizContainer');
+document.getElementById('start-button').addEventListener('click', function () {
 
-  formContainer.style.display = 'none';
+  document.getElementById('formContainer').style.display = 'none';
 
-  quizContainer.style.display = 'flex';
-  quizContainer.style.flex = '1';
-}
-const startQuizButton = document.getElementById('start-button');
-startQuizButton.addEventListener('click', startQuiz);
-
+  document.getElementById('quizContainer').style.display = 'block';
+});
