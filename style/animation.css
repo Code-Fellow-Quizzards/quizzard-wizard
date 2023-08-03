@@ -1,19 +1,19 @@
   .guest {
-    width: 1400px;
+    width: 100%;
     height: 45px;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
     top: 150px;
     left: 10px;
-    animation: walk 7s linear infinite;
+    animation: walk 10s linear infinite alternate;
   }
   
   .green-guest {
     background-image: url('/proj/img/green-imposter.png');
   }
 
-  /* .alejandra-guest {
+ /* .alejandra-guest {
     background-image: url('/proj/class/alejandra.png');
   } */
   

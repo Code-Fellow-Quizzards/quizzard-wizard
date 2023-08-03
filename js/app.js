@@ -30,18 +30,12 @@ Player.prototype.savePlayer = function () {
   };
 
   localStorage.setItem(this.name, JSON.stringify(playerData));
-  console.log('saved: ' + this.name);
 };
 
-Player.prototype.speaks = function () {
-  console.log(`${this} has thus spoken`);
-};
 
 function loadPlayer(playerName) {
-  console.log('loading existing player: ' + playerName);
   let existingPlayerData = localStorage.getItem(playerName);
   const playerData = JSON.parse(existingPlayerData);
-  console.log('loaded name: ' + playerData.name);
 
   let loadedPlayerObj = new Player(playerData.name);
   loadedPlayerObj.difficultyLevel = playerData.difficultyLevel;
@@ -107,8 +101,6 @@ function generateSampleLeaderBoard() {
     newPlayer.totalNumberAskedQuestions = playerAskedQuestions;
     newPlayer.totalNumberCorrectAnswers = playerCorrectAnswers;
     newPlayer.savePlayer();
-
-    console.log(newPlayer);
   }
 }
 

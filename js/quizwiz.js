@@ -5,22 +5,32 @@ const NUMBER_ANSWER_OPTION = 4;
 let questionPool = null;
 let playerPool = null;
 
+
+function addEasterEgg(indexNumber) {
+  // This is a very important Easter Egg - so we can seem like we know ALL the answers
+  // We're keeping an eye out for the number of periods after the footer, that's index number of the correct answer
+  const easterEggText = document.getElementById('easter-egg');
+  for (let i = 0; i < indexNumber; i++) {
+    easterEggText.innerHTML += '.';
+  }
+}
+
 // Randomizes the location of the correct answers inside an array with the incorrect answers
 function randomAnswerArray(answers) {
   const answerArray = [];
   let randomIndex = Math.floor(Math.random() * NUMBER_ANSWER_OPTION);
   let incorrectAnswer = answers.incorrect_answers;
-  console.log(incorrectAnswer);
+  const easterEggText = document.getElementById('easter-egg');
+  easterEggText.innerHTML = 'Handcrafted in WA, USA';
 
   for (let i = 0; i < NUMBER_ANSWER_OPTION; i++) {
-    console.log(randomIndex);
     if (i === randomIndex) {
       answerArray.push(answers.correct_answer);
     } else {
       answerArray.push(incorrectAnswer.pop());
     }
   }
-  console.log(answerArray);
+  addEasterEgg(randomIndex);
   return answerArray;
 }
 
@@ -128,7 +138,6 @@ function goToNextQuestion() {
         selectedAnswers[currentQuestion - 1],
         questionPool.results[currentQuestion - 1].correct_answer
       );
-      console.log(playerPool);
       radioSelected = false;
       loadQuestion();
     } else {
