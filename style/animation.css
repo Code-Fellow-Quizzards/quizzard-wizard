@@ -98,7 +98,7 @@
   }
 
   .house-guest {
-    background-image: url('/proj/img/spaceship.png');
+    background-image: url('../proj/img/spaceship.png');
     background-size: 60px;
   }
   
