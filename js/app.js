@@ -81,6 +81,36 @@ const categoryCodes = {
 };
 
 
+function getRandomNumberInRange(x, y) {
+  // Generate a random number between 0 (inclusive) and 1 (exclusive)
+  const randomFraction = Math.random();
+
+  // Scale the random fraction to fit the range between x and y
+  const randomNumberInRange = Math.floor(randomFraction * (y - x + 1)) + x;
+
+  return randomNumberInRange;
+}
+
+function generateSampleLeaderBoard() {
+  // Testing function
+  // This generates a random list of players that'll populate the Leader Board
+  let playerPreffix = 'newPlayer';
+  let numberOfPlayers = 25;
+
+  for (let i = 0; i < numberOfPlayers; i++) {
+    let newPlayer = new Player(playerPreffix + i);
+    let playerHighScore = getRandomNumberInRange(1, 99);
+    let playerAskedQuestions = getRandomNumberInRange (50, 100);
+    let playerCorrectAnswers = getRandomNumberInRange (1, 49);
+
+    newPlayer.highScore = playerHighScore;
+    newPlayer.totalNumberAskedQuestions = playerAskedQuestions;
+    newPlayer.totalNumberCorrectAnswers = playerCorrectAnswers;
+    newPlayer.savePlayer();
+
+    console.log(newPlayer);
+  }
+}
 
 function generateURL(gameCategory, numberQuestions, gameDifficulty) {
   // This function generates the URL for the API call
@@ -163,4 +193,7 @@ if (playAgainUserName) {
   playerTextBox.value = playAgainUserName;
   localStorage.removeItem('quizwiz');
 }
+
+// The following is a testing function we used to test that the Leader Board works as intended
+// generateSampleLeaderBoard();
 
