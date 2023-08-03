@@ -10,7 +10,7 @@
   }
   
   .green-guest {
-    background-image: url('/proj/img/green-imposter.png');
+    background-image: url('./proj/img/green-imposter.png');
   }
 
  /* .alejandra-guest {
@@ -18,7 +18,7 @@
   } */
   
   .yellow-guest {
-    background-image: url('/proj/img/yellow-imposter.png');
+    background-image: url('./proj/img/yellow-imposter.png');
   }
 
   /* .anthony-guest {
@@ -26,7 +26,7 @@
   } */
 
   .knife-guest {
-      background-image: url('/proj/img/knife-imposter.png');
+      background-image: url('./proj/img/knife-imposter.png');
   }
   
   /* .chester-guest {
@@ -34,7 +34,7 @@
     } */
 
   .wizard-guest {
-      background-image: url('/proj/img/wizard-imposter.png');
+      background-image: url('./proj/img/wizard-imposter.png');
   }
 
   /* .david-guest {
@@ -42,7 +42,7 @@
   } */
 
   .charmander-guest {
-    background-image: url('/proj/img/charmander-imposter.png');
+    background-image: url('./proj/img/charmander-imposter.png');
   }
 
   /* .john-guest {
