@@ -61,11 +61,6 @@ function playQuizWiz(player, questionData) {
   questionPool = questionData;
   playerPool = player;
   console.log(player);
-  // console.log('hi' + questionPool);
-  // let questionData = fetchAndReturnQuestionData(urlToGet);
-  // questionData.then(askQuestions);
-  // const currentQuestionData = questionData.results[currentQuestion];
-  // questionTextElement.innerHTML = currentQuestionData.question;
   playerPool.currentCorrectAnswers = 0;
   playerPool.currentNumberAskedQuestions = 0;
   loadQuestion();
@@ -73,8 +68,8 @@ function playQuizWiz(player, questionData) {
 
 function loadQuestion() {
   const currentQuestionData = questionPool.results[currentQuestion];
-  questionTextElement.textContent = currentQuestionData.question;
-
+  questionTextElement.innerHTML = currentQuestionData.question;
+  
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
 
@@ -142,7 +137,7 @@ function goToNextQuestion() {
       showResults();
     }
   } else {
-    alert('Please select an answer before proceeding.')
+    alert('Please select an answer before proceeding.');
   }
 }
 
@@ -163,7 +158,6 @@ function showResults() {
   playAgainButton.addEventListener('click', resetPage);
   leaderboardButton.addEventListener('click', showLeaderboardPage);
   hideButton();
-  // QUIZ_NAVIGATION.setAttribute('class', 'navigation-styling');
   QUIZ_NAVIGATION.appendChild(playAgainButton);
   QUIZ_NAVIGATION.appendChild(leaderboardButton);
 }
