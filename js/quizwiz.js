@@ -205,6 +205,6 @@ function startQuiz() {
   quizContainer.style.display = 'flex';
   quizContainer.style.flex = '1';
 }
-const startQuizButton = document.getElementById('startQuizButton');
+const startQuizButton = document.getElementById('start-button');
 startQuizButton.addEventListener('click', startQuiz);
 
