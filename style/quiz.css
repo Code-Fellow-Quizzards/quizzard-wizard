@@ -86,7 +86,7 @@
     background-color: #4CAF50;
     border-radius: 10px;
     /* padding: 2px; */
-    cursor: url('./proj/img/opal-pointer.png'), auto;
+    cursor: url('../proj/img/opal-pointer.png'), auto;
   }
 
   #quizContainer {
@@ -118,7 +118,7 @@
     justify-content: center;
     border: none;
     color: #fff;
-    cursor: url('./proj/img/opal-pointer.png'), auto;
+    cursor: url('../proj/img/opal-pointer.png'), auto;
     border-radius: 8px;
     transition: color 0.5s;
     font-family: 'Audiowide', cursive;
@@ -134,7 +134,7 @@
     background-color: rgb(76, 175, 80);
     border: none;
     color: #fff;
-    cursor: url('./proj/img/opal-pointer.png'), auto;
+    cursor: url('../proj/img/opal-pointer.png'), auto;
     border-radius: 8px;
     transition: color 0.5s;
     font-family: 'Audiowide', cursive;

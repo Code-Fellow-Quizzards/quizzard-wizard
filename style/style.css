@@ -5,7 +5,7 @@ body {
   font-family: 'Audiowide', cursive;
   margin: 0;
   padding: 0;
-  cursor: url('./proj/img/opal.png'), auto;
+  cursor: url('../proj/img/opal.png'), auto;
 }
 
 /* Header styles */
@@ -13,7 +13,7 @@ body {
 header {
   height: 120px;
   padding: 10px;
-  cursor: url('./proj/img/opal.png'), auto;
+  cursor: url('../proj/img/opal.png'), auto;
 }
 
 h1 {
@@ -56,7 +56,7 @@ ol li {
   margin: 0 20px;
   border: none;
   color: #fff;
-  cursor: url('./proj/img/opal-pointer.png'), auto;
+  cursor: url('../proj/img/opal-pointer.png'), auto;
   border-radius: 5px;
 }
 
@@ -115,7 +115,7 @@ ol li a:hover {
   color: #1b8b2b;
   box-shadow: 0 0 10px #1b8b2b;
   text-shadow: 0 0 10px #ffee10;
-  cursor: url('./proj/img/opal-pointer.png'), auto;
+  cursor: url('../proj/img/opal-pointer.png'), auto;
 }
 
 /* Main content styles */

@@ -10,7 +10,7 @@
   }
   
   .green-guest {
-    background-image: url('./proj/img/green-imposter.png');
+    background-image: url('../proj/img/green-imposter.png');
   }
 
  /* .alejandra-guest {
@@ -18,7 +18,7 @@
   } */
   
   .yellow-guest {
-    background-image: url('./proj/img/yellow-imposter.png');
+    background-image: url('../proj/img/yellow-imposter.png');
   }
 
   /* .anthony-guest {
@@ -26,7 +26,7 @@
   } */
 
   .knife-guest {
-      background-image: url('./proj/img/knife-imposter.png');
+      background-image: url('../proj/img/knife-imposter.png');
   }
   
   /* .chester-guest {
@@ -34,7 +34,7 @@
     } */
 
   .wizard-guest {
-      background-image: url('./proj/img/wizard-imposter.png');
+      background-image: url('../proj/img/wizard-imposter.png');
   }
 
   /* .david-guest {
@@ -42,7 +42,7 @@
   } */
 
   .charmander-guest {
-    background-image: url('./proj/img/charmander-imposter.png');
+    background-image: url('../proj/img/charmander-imposter.png');
   }
 
   /* .john-guest {
@@ -50,7 +50,7 @@
   } */
 
   .angel-guest {
-    background-image: url('/proj/img/angel-imposter.png');
+    background-image: url('../proj/img/angel-imposter.png');
   }
 
   /* .josh-guest {
@@ -58,7 +58,7 @@
   } */
 
   .king-guest {
-    background-image: url('/proj/img/king-imposter.png');
+    background-image: url('../proj/img/king-imposter.png');
   }
 
   /* .kat-guest {
@@ -66,7 +66,7 @@
   } */
 
   .pikachu-guest {
-    background-image: url('/proj/img/pikachu-imposter.png');
+    background-image: url('../proj/img/pikachu-imposter.png');
   }
 
   /* .paul-guest {
@@ -74,7 +74,7 @@
   } */
 
   .pumpkin-guest {
-    background-image: url('/proj/img/pumpkin-imposter.png');
+    background-image: url('../proj/img/pumpkin-imposter.png');
   }
 
   /* .samaad-guest {
@@ -82,7 +82,7 @@
   } */
 
   .crazyred-guest {
-    background-image: url('/proj/img/crazyred-imposter.png');
+    background-image: url('../proj/img/crazyred-imposter.png');
   }
 
   /* .sydney-guest {
@@ -90,11 +90,11 @@
   } */
 
   .purple-guest {
-    background-image: url('/proj/img/purple-imposter.png');
+    background-image: url('../proj/img/purple-imposter.png');
   }
 
   .vs-guest {
-    background-image: url('/proj/img/vs.png');
+    background-image: url('../proj/img/vs.png');
   }
   
   @keyframes walk {
