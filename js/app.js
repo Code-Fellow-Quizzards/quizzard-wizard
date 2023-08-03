@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 'use strict';
 
-console.log('app.js loaded');
-
 const EASY_DIFFICULTY = 1;
 const MEDIUM_DIFFICULTY = 2;
 const HIGH_DIFFICULTY = 3;
@@ -13,8 +11,6 @@ function Player(playerName) {
   this.difficultyLevel = EASY_DIFFICULTY;
 
   this.highScore = 0;
-  this.singleSessionBestScore = 0;
-  this.currentCategory = 0;
   this.currentCorrectAnswers = 0;
   this.currentNumberAskedQuestions = 0;
   this.totalNumberCorrectAnswers = 0;
@@ -27,8 +23,6 @@ Player.prototype.savePlayer = function () {
     name: this.name,
     difficultyLevel: this.difficultyLevel,
     highScore: this.highScore,
-    singleSessionBestScore: this.singleSessionBestScore,
-    currentCategory: this.currentCategory,
     currentCorrectAnswers: this.currentCorrectAnswers,
     currentNumberAskedQuestions: this.currentNumberAskedQuestions,
     totalNumberCorrectAnswers: this.totalNumberCorrectAnswers,
@@ -36,24 +30,16 @@ Player.prototype.savePlayer = function () {
   };
 
   localStorage.setItem(this.name, JSON.stringify(playerData));
-  console.log('saved: ' + this.name);
 };
 
-Player.prototype.speaks = function () {
-  console.log(`${this} has thus spoken`);
-};
 
 function loadPlayer(playerName) {
-  console.log('loading existing player: ' + playerName);
   let existingPlayerData = localStorage.getItem(playerName);
   const playerData = JSON.parse(existingPlayerData);
-  console.log('loaded name: ' + playerData.name);
 
   let loadedPlayerObj = new Player(playerData.name);
   loadedPlayerObj.difficultyLevel = playerData.difficultyLevel;
   loadedPlayerObj.highScore = playerData.highScore;
-  loadedPlayerObj.singleSessionBestScore = playerData.singleSessionBestScore;
-  loadedPlayerObj.currentCategory= playerData.currentCategory;
   loadedPlayerObj.currentCorrectAnswers = playerData.currentCorrectAnswers;
   loadedPlayerObj.currentNumberAskedQuestions = playerData.currentNumberAskedQuestions;
   loadedPlayerObj.totalNumberCorrectAnswers = playerData.totalNumberCorrectAnswers;
@@ -79,7 +65,6 @@ const categoryCodes = {
   'geography': 22,
   'history': 23,
   'politics': 24,
-  'art': 25,
   'celebrities': 26,
   'animals': 27,
   'vehicles': 28,
@@ -90,6 +75,34 @@ const categoryCodes = {
 };
 
 
+function getRandomNumberInRange(x, y) {
+  // Generate a random number between 0 (inclusive) and 1 (exclusive)
+  const randomFraction = Math.random();
+
+  // Scale the random fraction to fit the range between x and y
+  const randomNumberInRange = Math.floor(randomFraction * (y - x + 1)) + x;
+
+  return randomNumberInRange;
+}
+
+function generateSampleLeaderBoard() {
+  // Testing function
+  // This generates a random list of players that'll populate the Leader Board
+  let playerPreffix = 'newPlayer';
+  let numberOfPlayers = 25;
+
+  for (let i = 0; i < numberOfPlayers; i++) {
+    let newPlayer = new Player(playerPreffix + i);
+    let playerHighScore = getRandomNumberInRange(1, 99);
+    let playerAskedQuestions = getRandomNumberInRange (50, 100);
+    let playerCorrectAnswers = getRandomNumberInRange (1, 49);
+
+    newPlayer.highScore = playerHighScore;
+    newPlayer.totalNumberAskedQuestions = playerAskedQuestions;
+    newPlayer.totalNumberCorrectAnswers = playerCorrectAnswers;
+    newPlayer.savePlayer();
+  }
+}
 
 function generateURL(gameCategory, numberQuestions, gameDifficulty) {
   // This function generates the URL for the API call
@@ -106,10 +119,9 @@ function generateURL(gameCategory, numberQuestions, gameDifficulty) {
 }
 
 const startButton = document.getElementById('start-button');
-startButton.addEventListener('click', startGame);
-//////////////////////////////////////////////////
-// Add the Event Listener again after we play a round
-//////////////////////////////////////////////////
+if (startButton) {
+  startButton.addEventListener('click', startGame);
+}
 
 function startGame() {
   const playerNameInput = document.getElementById('player-name');
@@ -132,10 +144,14 @@ function startGame() {
 
     if (!existingPlayerData) {
       let activePlayer = new Player(playerName);
+      activePlayer.difficultyLevel = gameDifficulty;
       activePlayer.savePlayer();
     }
 
     let activePlayer = loadPlayer(playerName);
+    setGameDifficulty(activePlayer, gameDifficulty);
+
+
     startButton.innerHTML = 'Game in Progress';
     startButton.classList.add('unavailable-button');
     startButton.removeEventListener('click', startGame);
@@ -147,3 +163,29 @@ function startGame() {
     location.reload();
   }
 }
+
+function setGameDifficulty(activePlayer, gameDifficulty) {
+  switch (gameDifficulty){
+    case('medium'):
+      activePlayer.difficultyLevel = 2;
+      break;
+    case('hard'):
+      activePlayer.difficultyLevel = 3;
+      break;
+    default:
+      activePlayer.difficultyLevel = 1;
+  }
+}
+
+
+// The below is to see if someone has hit Play Again
+const playAgainUserName = localStorage.getItem('quizwiz');
+if (playAgainUserName) {
+  const playerTextBox = document.getElementById('player-name');
+  playerTextBox.value = playAgainUserName;
+  localStorage.removeItem('quizwiz');
+}
+
+// The following is a testing function we used to test that the Leader Board works as intended
+// generateSampleLeaderBoard();
+

@@ -1,32 +1,41 @@
 /* eslint-disable no-unused-vars */
 'use strict';
 
-console.log('quizwiz.js loaded');
-
 const NUMBER_ANSWER_OPTION = 4;
 let questionPool = null;
 let playerPool = null;
+
+
+function addEasterEgg(indexNumber) {
+  // This is a very important Easter Egg - so we can seem like we know ALL the answers
+  // We're keeping an eye out for the number of periods after the footer, that's index number of the correct answer
+  const easterEggText = document.getElementById('easter-egg');
+  for (let i = 0; i < indexNumber; i++) {
+    easterEggText.innerHTML += '.';
+  }
+}
 
 // Randomizes the location of the correct answers inside an array with the incorrect answers
 function randomAnswerArray(answers) {
   const answerArray = [];
   let randomIndex = Math.floor(Math.random() * NUMBER_ANSWER_OPTION);
   let incorrectAnswer = answers.incorrect_answers;
-  console.log(incorrectAnswer);
+  const easterEggText = document.getElementById('easter-egg');
+  easterEggText.innerHTML = 'Handcrafted in WA, USA';
 
   for (let i = 0; i < NUMBER_ANSWER_OPTION; i++) {
-    console.log(randomIndex);
     if (i === randomIndex) {
       answerArray.push(answers.correct_answer);
     } else {
       answerArray.push(incorrectAnswer.pop());
     }
   }
-  console.log(answerArray);
+  addEasterEgg(randomIndex);
   return answerArray;
 }
 
 let currentQuestion = 0;
+const questionXofY = document.getElementById('question-x-of-y');
 const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
 const nextBtn = document.getElementById('nextBtn');
@@ -68,8 +77,11 @@ function playQuizWiz(player, questionData) {
 
 function loadQuestion() {
   const currentQuestionData = questionPool.results[currentQuestion];
+  questionXofY.innerHTML = `Question #${currentQuestion + 1} of ${
+    questionPool.results.length
+  }`;
   questionTextElement.innerHTML = currentQuestionData.question;
-  
+
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
 
@@ -110,6 +122,7 @@ function evaluateAnswer(userAnswer, actualAnswer) {
   if (userAnswer === actualAnswer) {
     playerPool.currentCorrectAnswers++;
     playerPool.totalNumberCorrectAnswers++;
+    playerPool.highScore += playerPool.difficultyLevel;
     playerPool.savePlayer();
   } else {
     playerPool.savePlayer();
@@ -125,7 +138,6 @@ function goToNextQuestion() {
         selectedAnswers[currentQuestion - 1],
         questionPool.results[currentQuestion - 1].correct_answer
       );
-      console.log(playerPool);
       radioSelected = false;
       loadQuestion();
     } else {
@@ -160,6 +172,7 @@ function showResults() {
   playAgainButton.addEventListener('click', resetPage);
   leaderboardButton.addEventListener('click', showLeaderboardPage);
   hideButton();
+  hideQuestionXofY();
   QUIZ_NAVIGATION.appendChild(playAgainButton);
   QUIZ_NAVIGATION.appendChild(leaderboardButton);
 }
@@ -168,6 +181,8 @@ nextBtn.addEventListener('click', goToNextQuestion);
 
 // reloads the current page
 function resetPage() {
+  // save player to local variable, we'll check if it exists before we play every game. if it exists, we'll delete it after we start the game
+  localStorage.setItem('quizwiz', playerPool.name);
   location.reload();
 }
 
@@ -178,6 +193,11 @@ function showLeaderboardPage() {
 function hideButton() {
   let hideThisButton = document.getElementById('nextBtn');
   hideThisButton.parentNode.removeChild(hideThisButton);
+}
+
+function hideQuestionXofY() {
+  let hideQuestionCounter = document.getElementById('question-x-of-y');
+  hideQuestionCounter.parentNode.removeChild(hideQuestionCounter);
 }
 
 document.getElementById('start-button').addEventListener('click', function () {

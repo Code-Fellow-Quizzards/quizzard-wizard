@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome Quiz Whiz</title>
+    <title>Welcome Quiz Wiz</title>
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/quiz.css" />
     <link rel="stylesheet" href="style/form.css" />
@@ -22,7 +22,7 @@
   </head>
   <body>
     <header>
-      <h1>Quizzard Wizzard</h1>
+      <h1>Quiz Wiz</h1>
       <nav>
         <ol>
           <li>
@@ -31,12 +31,12 @@
               <span>HOME</span>
             </a>
           </li>
-          <!-- <li>
-          <a href="./quizwiz.html">
+          <li>
+          <a href="./instructions.html">
             <i class="fas fa-gamepad"></i>
-            <span>PLAY</span>
+            <span>INSTRUCTIONS</span>
           </a>
-        </li> -->
+        </li>
           <li>
             <a href="./leaderboard.html">
               <i class="fas fa-dice-d20"></i>
@@ -87,6 +87,7 @@
                 type="text"
                 name="playerName"
                 placeholder="username"
+                value = ""
                 required
               />
               <hr />
@@ -123,7 +124,6 @@
                 <option value="geography">Geography</option>
                 <option value="history">History</option>
                 <option value="politics">Politics</option>
-                <!-- <option value="art">Art</option> -->
                 <option value="celebrities">Celebrities</option>
                 <option value="animals">Animals</option>
                 <option value="vehicles">Vehicles</option>
@@ -200,7 +200,8 @@
         <p id="questionsRemaining">QuestionsRemaining: 0</p> -->
         <hr class="quiz-wiz-hr">
         <div class="question">
-          <p id="question-text">Questions goes here!</p>
+          <p id="question-x-of-y"></p>
+          <p id="question-text">Loading questions...</p>
           <ul id="options" class="options-container">
             <!-- Options will be dynamically added using JavaScript -->
           </ul>
@@ -213,7 +214,7 @@
     <section></section>
     <footer>
       <hr />
-      Handcrafted in WA, USA
+      <span id="easter-egg">Handcrafted in WA, USA</span>
     </footer>
     <script src="js/app.js" defer></script>
     <script src="js/quizwiz.js" defer></script>
