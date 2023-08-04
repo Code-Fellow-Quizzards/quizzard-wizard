@@ -156,6 +156,7 @@ function goToNextQuestion() {
 }
 
 const QUIZ_NAVIGATION = document.getElementById('navigation');
+const GAME_COMPLETE = document.getElementById('gameStatus');
 
 // Display the user's selected answers (you can customize the output as per your requirements)
 function showResults() {
@@ -163,7 +164,7 @@ function showResults() {
   let leaderboardButton = document.createElement('button');
   playAgainButton.setAttribute('id', 'playBtn');
   leaderboardButton.setAttribute('id', 'leadBtn');
-
+  GAME_COMPLETE.innerHTML = `<span>Game Complete</span>`;
   questionTextElement.textContent = `Thanks for playing ${playerPool.name}`;
   optionsElement.innerHTML = `<p>Correct Answers = ${playerPool.currentCorrectAnswers}</p><br /><p>Number of Questions = ${playerPool.currentNumberAskedQuestions}</p><br /><p>Lifetime Correct Answers = ${playerPool.totalNumberCorrectAnswers}</p><br /><p>Lifetime Number of Questions = ${playerPool.totalNumberAskedQuestions}</p><br />`;
   playAgainButton.textContent = 'Play Again';
