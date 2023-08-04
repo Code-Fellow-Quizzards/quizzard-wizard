@@ -5,7 +5,6 @@ const NUMBER_ANSWER_OPTION = 4;
 let questionPool = null;
 let playerPool = null;
 
-
 function addEasterEgg(indexNumber) {
   // This is a very important Easter Egg - so we can seem like we know ALL the answers
   // We're keeping an eye out for the number of periods after the footer, that's index number of the correct answer
@@ -82,7 +81,7 @@ function loadQuestion() {
     questionPool.results.length
   }`;
   questionTextElement.innerHTML = currentQuestionData.question;
-   pickAnswerAlert.innerHTML = '';
+  pickAnswerAlert.innerHTML = '';
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
 
@@ -152,7 +151,7 @@ function goToNextQuestion() {
       showResults();
     }
   } else {
-     pickAnswerAlert.innerHTML = `Please select an answer!`;
+    pickAnswerAlert.innerHTML = `Please select an answer!`;
   }
 }
 
@@ -163,6 +162,7 @@ const GAME_COMPLETE = document.getElementById('gameStatus');
 function showResults() {
   let playAgainButton = document.createElement('button');
   let leaderboardButton = document.createElement('button');
+  pickAnswerAlert.innerHTML = '';
   playAgainButton.setAttribute('id', 'playBtn');
   leaderboardButton.setAttribute('id', 'leadBtn');
   GAME_COMPLETE.innerHTML = `<span>Game Complete</span>`;
