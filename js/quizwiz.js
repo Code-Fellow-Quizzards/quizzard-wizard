@@ -5,10 +5,9 @@ const NUMBER_ANSWER_OPTION = 4;
 let questionPool = null;
 let playerPool = null;
 
-
 function addEasterEgg(indexNumber) {
   // This is a very important Easter Egg - so we can seem like we know ALL the answers
-  // We're keeping an eye out for the number of periods after the footer, that's index number of the correct answer
+  // We're keeping an eye out for the number of periods after the footer, that's the index number of the correct answer
   const easterEggText = document.getElementById('easter-egg');
   for (let i = 0; i < indexNumber; i++) {
     easterEggText.innerHTML += '.';
@@ -36,6 +35,7 @@ function randomAnswerArray(answers) {
 
 let currentQuestion = 0;
 const questionXofY = document.getElementById('question-x-of-y');
+const pickAnswerAlert = document.getElementById('pick-answer-alert');
 const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
 const nextBtn = document.getElementById('nextBtn');
@@ -81,7 +81,7 @@ function loadQuestion() {
     questionPool.results.length
   }`;
   questionTextElement.innerHTML = currentQuestionData.question;
-
+  pickAnswerAlert.innerHTML = '';
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
 
@@ -151,19 +151,21 @@ function goToNextQuestion() {
       showResults();
     }
   } else {
-    alert('Please select an answer before proceeding.');
+    pickAnswerAlert.innerHTML = `Please select an answer!`;
   }
 }
 
 const QUIZ_NAVIGATION = document.getElementById('navigation');
+const GAME_COMPLETE = document.getElementById('gameStatus');
 
 // Display the user's selected answers (you can customize the output as per your requirements)
 function showResults() {
   let playAgainButton = document.createElement('button');
   let leaderboardButton = document.createElement('button');
+  pickAnswerAlert.innerHTML = '';
   playAgainButton.setAttribute('id', 'playBtn');
   leaderboardButton.setAttribute('id', 'leadBtn');
-
+  GAME_COMPLETE.innerHTML = `<span>Game Complete</span>`;
   questionTextElement.textContent = `Thanks for playing ${playerPool.name}`;
   optionsElement.innerHTML = `<p>Correct Answers = ${playerPool.currentCorrectAnswers}</p><br /><p>Number of Questions = ${playerPool.currentNumberAskedQuestions}</p><br /><p>Lifetime Correct Answers = ${playerPool.totalNumberCorrectAnswers}</p><br /><p>Lifetime Number of Questions = ${playerPool.totalNumberAskedQuestions}</p><br />`;
   playAgainButton.textContent = 'Play Again';

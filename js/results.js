@@ -1,6 +1,6 @@
 'use strict';
 
-function loadleaderboard() {
+function loadLeaderboard() {
   const leaderboardBody = document.getElementById('leaderboard-body');
 
   const players = [];
@@ -30,4 +30,4 @@ function loadleaderboard() {
   }
 }
 
-loadleaderboard();
+loadLeaderboard();

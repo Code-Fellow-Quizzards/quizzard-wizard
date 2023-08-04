@@ -5,7 +5,6 @@ body {
   font-family: 'Audiowide', cursive;
   margin: 0;
   padding: 0;
-  cursor: url('../proj/img/opal.png'), auto;
 }
 
 /* Header styles */
@@ -13,7 +12,6 @@ body {
 header {
   height: 120px;
   padding: 10px;
-  cursor: url('../proj/img/opal.png'), auto;
 }
 
 h1 {
@@ -56,14 +54,13 @@ ol li {
   margin: 0 20px;
   border: none;
   color: #fff;
-  cursor: url('../proj/img/opal-pointer.png'), auto;
   border-radius: 5px;
 }
 
 ol li a {
-  position: relative;
+  position: relative; 
   display: block;
-  width: 60px;
+  width: 40px;
   height: 40px;
   text-align: center;
   line-height: 63px;
@@ -88,7 +85,7 @@ ol li span {
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 12px;
+  font-size: 10px;
   color: #fff;
 }
 
@@ -115,7 +112,10 @@ ol li a:hover {
   color: #1b8b2b;
   box-shadow: 0 0 10px #1b8b2b;
   text-shadow: 0 0 10px #ffee10;
-  cursor: url('../proj/img/opal-pointer.png'), auto;
+}
+
+nav ol li {
+  margin: 0 30px;  
 }
 
 /* Main content styles */
@@ -123,7 +123,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
   margin-top: 30px;
 }
 
@@ -131,16 +130,6 @@ h2 {
   margin-top: 20px;
   margin-bottom: 0;
 }
-
-/* ------who's button is this?----- */
-/* .button-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: 10px;
-} */
-/* ------who's button is this?----- */
 
 span {
   font-size: 10px;
@@ -156,10 +145,6 @@ hr {
   border-color: #444;
 }
 
-nav ol li {
-  margin: 0 40px;  
-}
-
 #question-x-of-y {
   margin-bottom: 16px;
 }
@@ -167,4 +152,9 @@ nav ol li {
 #easter-egg {
   font-size: 20px;
   text-align: center;
+}
+
+#pick-answer-alert {
+  background-color: #117122;
+  border-radius: 5px;
 }

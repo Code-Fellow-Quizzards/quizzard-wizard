@@ -1,6 +1,7 @@
 .form-container {
     /* flex: 3; */
     margin-right: 20px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     font-weight: 200;
@@ -14,7 +15,7 @@
     padding: 20px;
     border-radius: 10px;
     background: -webkit-linear-gradient(45deg, rgb(67, 140, 59) 1%, rgba(92, 71, 255, 0) 50%, rgba(92, 71, 255, 0) 100%);
-    cursor: url('../proj/img/opal.png'), auto;
+
   }
 
   input,
@@ -29,7 +30,6 @@
   color: #fff;
   font-family: 'Audiowide', cursive;
   text-align: center;
-  cursor: url('../proj/img/opal-pointer.png'), auto;
 }
 
 #player-name {
@@ -42,7 +42,6 @@ label {
     justify-content: center;
     margin-bottom: 5px;
     font-weight: bold;
-    cursor: url('../proj/img/opal.png'), auto;
   }
   
   label p {
@@ -74,7 +73,6 @@ label {
     background-color: rgb(76, 175, 80);
     border: none;
     color: #fff;
-    cursor: url('../proj/img/opal-pointer.png'), auto;
     font-weight: bold;
     border-radius: 10px;
     transition: color 0.5s;
@@ -99,7 +97,6 @@ label {
     background-color: rgb(76, 175, 80);
     border: none;
     color: #fff;
-    cursor: url('../proj/img/opal-pointer.png'), auto;
     font-weight: bold;
     border-radius: 10px;
     transition: color 0.5s;
@@ -111,17 +108,12 @@ label {
     position: relative;
     overflow: hidden;
   }
-  
-  /* button.idle-button {
-    padding: 5px 10px;
-  } */
 
   #start-button.idle-button {
     padding: 5px 10px;
     background-color: rgb(76, 175, 80);
     border: none;
     color: #fff;
-    cursor: url('../proj/img/opal-pointer.png'), auto;
     font-weight: bold;
     border-radius: 10px;
     transition: color 0.5s;
@@ -139,7 +131,6 @@ label {
     background-color: rgb(125, 125, 125);
     border: none;
     color: #fff;
-    /* cursor: url('/proj/img/no-entry.png'), auto; */
     font-weight: bold;
     border-radius: 10px;
     transition: color 0.5s;
@@ -148,7 +139,6 @@ label {
     margin-left: 10px;
     position: relative;
     overflow: hidden;
-    /* cursor: url('/proj/img/opal.png'), auto; */
   }
 
   #start-button.unavailable-button {
@@ -156,7 +146,6 @@ label {
     background-color: rgb(125, 125, 125);
     border: none;
     color: #fff;
-    /* cursor: url('/proj/img/no-entry.png'), auto; */
     font-weight: bold;
     border-radius: 10px;
     transition: color 0.5s;
@@ -165,7 +154,6 @@ label {
     margin-left: 10px;
     position: relative;
     overflow: hidden;
-    /* cursor: url('/proj/img/opal.png'), auto; */
   }
 
   .unavailable-button:hover {
@@ -197,11 +185,6 @@ label {
     50% {
       transform: scale(1.1);
     }
-  
-    /* #questionsRemaining {
-      font-size: 15px;
-      margin: 0;
-    } */
-  }
+
 
 
