@@ -7,7 +7,7 @@ let playerPool = null;
 
 function addEasterEgg(indexNumber) {
   // This is a very important Easter Egg - so we can seem like we know ALL the answers
-  // We're keeping an eye out for the number of periods after the footer, that's index number of the correct answer
+  // We're keeping an eye out for the number of periods after the footer, that's the index number of the correct answer
   const easterEggText = document.getElementById('easter-egg');
   for (let i = 0; i < indexNumber; i++) {
     easterEggText.innerHTML += '.';
