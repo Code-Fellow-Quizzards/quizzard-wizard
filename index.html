@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome Quiz Wiz</title>
+    <title>Quiz Wiz</title>
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/quiz.css" />
     <link rel="stylesheet" href="style/form.css" />
@@ -43,34 +43,29 @@
               <span>LEADERBOARD</span>
             </a>
           </li>
-
-          <!-- <li><a href="/quizwiz.html">Play Quiz Wiz</a></li> -->
+           <li>
+            <a href="./about.html">
+              <i class="fas fa-laptop-code"></i>
+              <span>About</span>
+            </a>
+          </li>
         </ol>
       </nav>
     </header>
     <div class="animation-guest">
       <div class="guest green-guest"></div>
-      <div class="guest alejandra-guest"></div>
       <div class="guest yellow-guest"></div>
-      <div class="guest anthony-guest"></div>
       <div class="guest knife-guest"></div>
-      <div class="guest chester-guest"></div>
       <div class="guest wizard-guest"></div>
-      <div class="guest david-guest"></div>
       <div class="guest charmander-guest"></div>
-      <div class="guest john-guest"></div>
       <div class="guest angel-guest"></div>
-      <div class="guest josh-guest"></div>
       <div class="guest king-guest"></div>
-      <div class="guest kat-guest"></div>
       <div class="guest pikachu-guest"></div>
-      <div class="guest paul-guest"></div>
       <div class="guest pumpkin-guest"></div>
-      <div class="guest samaad-guest"></div>
       <div class="guest crazyred-guest"></div>
-      <div class="guest sydney-guest"></div>
       <div class="guest purple-guest"></div>
       <div class="guest vs-guest"></div>
+      <div class="guest the-real-imposter-guest"></div>
       <div class="guest house-guest"></div>
     </div>
     <main>
@@ -194,13 +189,14 @@
       <div class="quiz-container" id="quizContainer">
         <!-- <h2>Quiz Wiz</h2> -->
         <div class="gameInProgress">
-          <span>Game in Progress</span>
+          <span id="gameStatus">Game in Progress</span>
         </div>
         <!-- <p id="score">Score: 0</p>
         <p id="questionsRemaining">QuestionsRemaining: 0</p> -->
         <hr class="quiz-wiz-hr">
         <div class="question">
           <p id="question-x-of-y"></p>
+          <p id="pick-answer-alert"></p>
           <p id="question-text">Loading questions...</p>
           <ul id="options" class="options-container">
             <!-- Options will be dynamically added using JavaScript -->
