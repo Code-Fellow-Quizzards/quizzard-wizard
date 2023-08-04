@@ -115,7 +115,6 @@ ol li a:hover {
   color: #1b8b2b;
   box-shadow: 0 0 10px #1b8b2b;
   text-shadow: 0 0 10px #ffee10;
-  /* cursor: url('../proj/img/opal-pointer.png'), auto; */
 }
 
 /* Main content styles */
@@ -123,7 +122,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
   margin-top: 30px;
 }
 
@@ -131,16 +129,6 @@ h2 {
   margin-top: 20px;
   margin-bottom: 0;
 }
-
-/* ------who's button is this?----- */
-/* .button-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: 10px;
-} */
-/* ------who's button is this?----- */
 
 span {
   font-size: 10px;
