@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Wiz Game</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/quiz.css">
+  <link rel="stylesheet" href="style/form.css">
+  <link rel="stylesheet" href="style/leaderboard.css">
+  <link rel="stylesheet" href="style/animation.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+</head>
+<body>
+  <header>
+    <h1>Quiz Whiz</h1>
+    <nav>
+      <ol>
+        <li>
+          <a href="./index.html">
+            <i class="fas fa-dungeon"></i>
+            <span>HOME</span>
+          </a>
+        </li>
+        <li>
+          <a href="/instructions.html">
+            <i class="fas fa-gamepad"></i>
+            <span>INSTRUCTIONS</span>
+          </a>
+        </li>
+        <li>
+          <a href="/results.html">
+            <i class="fas fa-dice-d20"></i>
+            <span>LEADERBOARD</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+  </header>
+  <div class="quiz-container">
+      <h1>Quiz Wiz</h1>
+      <div class="question">
+      <p id="question-text">Questions goes here!</p>
+        <ul id="options">
+          <!-- Options will be dynamically added using JavaScript -->
+        </ul>
+      </div>
+      <div class="navigation">
+        <button id="nextBtn">Next</button>
+      </div>
+  </div>
+    <script src="js/app.js"></script>
+    <script src="js/quizwiz.js"></script>
+  </body>
+</html>
