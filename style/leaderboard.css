@@ -12,7 +12,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 10px;
   }
   
   #leaderboard-table {
@@ -33,4 +32,8 @@
     background-color: #021605;
     color: #fff;
     border-radius: 20px;
+  }
+
+  .sorted {
+    margin: 0;
   }

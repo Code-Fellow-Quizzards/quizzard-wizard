@@ -5,3 +5,7 @@ div ol {
 div ol li {
   list-style:decimal;
 }
+
+.instruction-main {
+  margin-left: 80px;
+}
