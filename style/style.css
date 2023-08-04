@@ -168,3 +168,8 @@ nav ol li {
   font-size: 20px;
   text-align: center;
 }
+
+#pick-answer-alert {
+  background-color: #117122;
+  border-radius: 5px;
+}

@@ -36,6 +36,7 @@ function randomAnswerArray(answers) {
 
 let currentQuestion = 0;
 const questionXofY = document.getElementById('question-x-of-y');
+const pickAnswerAlert = document.getElementById('pick-answer-alert');
 const questionTextElement = document.getElementById('question-text');
 const optionsElement = document.getElementById('options');
 const nextBtn = document.getElementById('nextBtn');
@@ -81,7 +82,7 @@ function loadQuestion() {
     questionPool.results.length
   }`;
   questionTextElement.innerHTML = currentQuestionData.question;
-
+   pickAnswerAlert.innerHTML = '';
   optionsElement.innerHTML = '';
   const options = randomAnswerArray(currentQuestionData);
 
@@ -151,7 +152,7 @@ function goToNextQuestion() {
       showResults();
     }
   } else {
-    alert('Please select an answer before proceeding.');
+     pickAnswerAlert.innerHTML = `Please select an answer!`;
   }
 }
 
